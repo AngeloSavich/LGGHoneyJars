@@ -1,0 +1,99 @@
+.parallax-window {
+    min-height: 40rem;
+    background: rgba(0, 0, 0, 0); /* or use transparent */
+}
+
+.navbar-inner {
+    background: rgba(0, 0, 0, 0);
+}
+
+.nav-bar-additional{
+    padding-right: 5.5rem;
+    padding-left: 2.5rem;
+    padding-top: 1.5rem;
+}
+
+.icon-format{
+    height: 2rem;
+    width: 2rem;
+    background: rgba(0, 0, 0, 0);
+    margin-left: .7rem;
+    margin-right: .7rem;
+}
+
+.white-font{
+    color: white;
+}
+
+
+/*
+.container-parallax{
+    width: 100%;
+    margin: 0;
+    background: white;
+    height: 100%;
+}
+
+.parallax1{
+    background: url("../images/beeimage.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 80rem;
+}
+/*
+
+/*@font-face {
+    font-family: rockwell;
+    src: url('../fonts/rockwell/ROCK.TTF') format('TTF');
+}
+
+@font-face {
+    font-family: rockwellbold;
+    src: url('../fonts/rockwell/rockb.ttf') format('ttf');
+    font-weight: bold;
+}
+
+.defaultfont {
+    font-family: rockwell;
+}
+
+body {
+	background-color: RGB(52,58,64);
+	margin: 0;
+	padding: 0;
+}
+
+.basicpadding {
+    padding: 1rem;
+}
+
+.main-image {
+    background-image: url("../images/personal.jpg");
+    background-size: cover;
+    height: 92vh;
+}
+
+.display-spacing {
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+.btn-spacing-half{
+    margin-top: 50vh;}
+
+.btn-sizing{
+    min-width: 16rem;
+}
+
+@media only screen and (max-width: 540px) {
+    .display-spacing {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+
+@media only screen and (max-width: 720px) {}
+
+@media only screen and (max-width: 960px) {}
+
+@media only screen and (max-width: 1140px) {}*/
