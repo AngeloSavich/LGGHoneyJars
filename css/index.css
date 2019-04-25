@@ -37,7 +37,7 @@ input{
     font-size:14pt
 }
 
-vertical-align {
+.vertical-align {
     vertical-align:middle;
 }
 
@@ -67,6 +67,14 @@ vertical-align {
     width: 1.7em;
     margin-left: -1.7em;
     vertical-align: middle;
+}
+
+.outlined-text {
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
 /*
@@ -127,6 +135,13 @@ body {
 .btn-sizing{
     min-width: 16rem;
 }
+*/
+
+/* nav bar formatting below */
+.lgg-logo{
+        width: 150px;
+        height: 200px;
+}
 
 @media only screen and (max-width: 540px) {
     .display-spacing {
@@ -135,8 +150,21 @@ body {
     }
 }
 
-@media only screen and (max-width: 720px) {}
+@media only screen and (max-width: 720px) {
+    .lgg-logo{
+        width: 75px;
+        height: 100px;
+    }
 
-@media only screen and (max-width: 960px) {}
+}
 
-@media only screen and (max-width: 1140px) {}*/
+@media only screen and (max-width: 960px) {
+    .lgg-logo{
+        width: 75px;
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+
+}
