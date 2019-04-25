@@ -32,7 +32,7 @@
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
 					<div class="navbar-nav">
 					  <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-					  <a class="nav-item nav-link" href="#">Blockchain 101</a>
+					  <a class="nav-item nav-link" href="blockchain101.html">Blockchain 101</a>
 					  <a class="nav-item nav-link" href="#">Launch Web App (Beta)</a>
 					  <div id="header_button"> <button onclick="location.href='senddocs.html'" type="button" class="btn btn-light">Store (Off-Site)</button> </div>
 					  <!--- Need a transparent white icon: <a href="#"><img class="icon-format" src="images/mail_icon.png"></a> --->
@@ -46,13 +46,37 @@
 				</nav>
 
 			<div class="container-fluid">
-				<div class="row justify-content-center" style="padding-top: 7rem">
+				<div class="row justify-content-center" style="padding-top: 3.5rem;">
 					<div class="col-5"> </div>
 					<div class="col-2 white-font" style="text-align: center"><h1> HONEY </h1></div>
 					<div class="col-5"> </div>
 				</div>
 			</div>
 		<!-- End of first parallax --->	
+		</div>
+
+		<div class="container-fluid">
+			<div class="row justify-content-center" style="padding-top: 3rem; padding-bottom: 3rem;">
+				<div class="col-4"> </div>
+				<div class="col-4 black-font" style="text-align: center">
+					<p> The "Bailey Bee Team" was first created in 2014 as a way to introduce bees to the same living space as undergraduate students. Fast forward to the present and the same colonies, along with a few more at the Student Organic Farm are producing honey that is being sold under the Land Grant Goods name. </p>
+					<p class="bold">Enter your honey's unique identifying number below!</p>
+					
+					<!--- QR input field and element --->
+					<input type=text class=qrcode-text
+					><label class=qrcode-text-btn>
+
+					  <input type=file
+					         accept="image/*"
+					         capture=environment
+					         tabindex=-1>
+
+					</label>
+
+
+				</div>
+				<div class="col-4"> </div>
+			</div>
 		</div>
 
 
@@ -121,6 +145,29 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	<!--- Script for QR Code --->
+	<script type="text/javascript">
+		function openQRCamera(node) {
+		  var reader = new FileReader();
+		  reader.onload = function() {
+		    node.value = "";
+		    qrcode.callback = function(res) {
+		      if(res instanceof Error) {
+		        alert("No QR code found. Please make sure the QR code is within the camera's frame and try again.");
+		      } else {
+		        node.parentNode.previousElementSibling.value = res;
+		      }
+		    };
+		    qrcode.decode(reader.result);
+		  };
+		  reader.readAsDataURL(node.files[0]);
+		}
+
+		function showQRIntro() {
+		  return confirm("Use your camera to take a picture of a QR code.");
+		}
+	</script>
 
 	</body>
 </html>
