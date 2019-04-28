@@ -17,29 +17,30 @@
 	<body>
 
 		<div class="parallax-window nav-bar-additional" data-parallax="scroll" data-image-src="images/blockchain101/top-page-mockup/honey_comb.jpg">
-
+				
 				<nav class="navbar navbar-dark navbar-expand-lg navbar-transparent">
 				 	<a class="navbar-brand" href="#">
-				 		<!--- proper ratio for logo is 757 width 1005 height no unit --->
-				   		<img src="images/logo.png" width="150" height="200" alt="">
+				 		<!--- proper ratio for logo is 757 width 1005 height no unit. Nav bar logo --->
+				   		<img href="index.html" src="images/logo.png" class="lgg-logo">
 				 	</a>
 
-				 	<!--- This button qppears when the page goes to mobile or mid-tablet sizes. Condenses navbar. --->
+				 	<!--- This button appears when the page goes to mobile or mid-tablet sizes. Condenses navbar. --->
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     				<span class="navbar-toggler-icon"></span>
   					</button>
 
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
 					<div class="navbar-nav">
+						<!--- This  handles the links on the nav bar --->
 					  <a class="nav-item nav-link active outlined-text" href="index.html">Home <span class="sr-only">(current)</span></a>
 					  <a class="nav-item nav-link active outlined-text" href="blockchain101.html">Blockchain 101</a>
-					  <a class="nav-item nav-link active outlined-text" href="http://localhost:4200/">Launch Web App (Beta)</a>
-					  <div id="header_button"> <button onclick="location.href='https://www.landgrantgoods.com/'" type="button" class="btn btn-light">Store (Off-Site)</button> </div>
-					  <!--- Need a transparent white icon: <a href="#"><img class="icon-format" src="images/mail_icon.png"></a> --->
-					 
-					  <a href="https://twitter.com/landgrantgoods" class="d-lg-block"><img class="icon-format" style="background-color: black;" src="images/twitter_icon_resize.png"></a>
-					  <a href="https://www.instagram.com/landgrantgoods/" class="d-lg-block"><img class="icon-format" style="background-color: black;" src="images/ig_logo.png"></a>
-					  <a href="https://www.facebook.com/landgrantgoods/" class="d-lg-block"><img class="icon-format" style="background-color: black;" src="images/facebook_logo.png"></a>
+					  <a class="nav-item nav-link active outlined-text" href="http://localhost:4200/" target="_blank">Launch Web App (Beta)</a>
+						<div id="header_button"> <button onclick="location.href='https://www.landgrantgoods.com/'" type="button" class="btn btn-light">Store (Off-Site)</button> </div>
+						<!--- Need a transparent white icon: <a href="#"><img class="icon-format" src="images/mail_icon.png"></a> --->
+						<!-- the style on these makes the backgrounds the LGG grey on their og site --->
+					    <a href="https://twitter.com/landgrantgoods" class="d-lg-block"><img class="icon-format" style="background-color: rgb(31,31,31);" src="images/twitter_icon_resize.png"></a>
+					    <a href="https://www.instagram.com/landgrantgoods/" class="d-lg-block"><img class="icon-format" style="background-color: rgb(31,31,31);" src="images/ig_logo.png"></a>
+					    <a href="https://www.facebook.com/landgrantgoods/" class="d-lg-block"><img class="icon-format" style="background-color: rgb(31,31,31);" src="images/facebook_logo.png"></a>
 
 					</div>
 			<!-- This  div is for <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">, and the div above is for the div above that --->
@@ -49,85 +50,104 @@
 			<div class="container-fluid">
 				<div class="row justify-content-center" style="padding-top: 1.5rem;">
 					<div class="col-lg-2 col-md-3"> </div>
-					<div class="col-lg-8 col-md-6 white-font outlined-text" style="text-align: center"><h1> Blockchain 101: Beginners Guide </h1></div>
+					<div class="col-lg-8 col-md-6 white-font outlined-text" style="text-align: center"><h1 class="parallax-title"> Blockchain 101: Beginners Guide </h1></div>
 					<div class="col-lg-2 col-md-3"> </div>
 				</div>
 			</div>
 		<!-- End of first parallax --->	
-		</div>
 
-		<div class="container-fluid">
+
+	<!--- Blockchain Information Starts Here --->
+
+			</div>
+
+		<div class="container-fluid blockchain101-body white-background">
 			<div class="row" style="padding: 3rem, 3rem, 3rem, 3rem;">
-				<div class="col-lg-4 col-md-3 "> </div>
-				<div class="col-lg-4 col-md-6 black-font" style="text-align: center">
-					<p> Coming Soon </p>
-					<p class="bold"></p>
+				<div class="col-lg-6 col-md-6 black-font center-vertical" style="text-align: left;">
 
-				</div>
-				<div class="col-lg-4 col-md-3"> </div>
-			</div>
-		</div>
-
-
-
-		<!---
-		<div class="parallax-window" data-parallax="scroll" data-image-src="images/greenhouses.jpg">
-			
-		</div>
-		--->
-	<!--
-		<div class="container-parallax">
-			<div class="parallax1">
-				<div class = row>
+						<!-- This allows the object to be centered next to the image, but still have indiv lines (Alpha usage) --->
+						<div class="container-fluid white-background">
+							<div class="row">
+								<h4>Why It's Called a Blockchain</h4> 
+								<p>A block is a record of data. These are typically new transactions. When a block is completed, AKA filled with data, it’s added to the chain. This makes a chain of blocks, and there we have it: Blockchain!</p>
+							</div>
+						</div>
 
 				</div>
 
-				<div class = row>
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
-			</div>
-		</div>
-	--->
-
-	<!-- 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark defaultfont basicpadding display-spacing">
-
-			<div>
-				<a class="navbar-brand" href="#" >Honey Jars</a>
-			</div>
-		
-			<div>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-		
-			<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-				<div class="navbar-nav"> -->
-					<!--<a class="nav-item nav-link" href="#">Development</a>-->
-		<!-- 			<a class="nav-item nav-link" href="mailto:angelo.savich@gmail.com">Contact Me</a>
+				<div class="col-lg-6 col-md-6 black-font" style="text-align: left;">
+					<img class="img-fluid" src="images/blockchain101/chain_of_blocks.png">
 				</div>
 			</div>
 
-		</nav> -->
+			<!-- Next Row 2-->
+			<div class="row" style="padding: 3rem, 3rem, 3rem, 3rem;">
+				<div class="col-lg-6 col-md-6 black-font" style="text-align: left;">
 
-<!-- 
+								<h4>The Perks of Blockchain:</h4> 
+								<p>-  Distributed</p>
+								<p>-  Decentralized</p>
+								<p>-  Immutable</p>
+								<p>-  Secure</p>
 
-		<div class="container-fluid">
-			<div class="row main-image image-fluid">
-				<div class="col-md-7 col-lg-7"></div>
 
-				<div class="col-md-2 col-lg-2">
-					<div class="btn-group-vertical btn-block defaultfont btn-spacing-half">
+				</div>
+
+				<div class="col-lg-6 col-md-6 black-font" style="text-align: left;">
+					<img class="img-fluid" src="images/blockchain101/centralized_vs_decentralized.png">
+				</div>
+			</div>
+
+			<!-- Next Row 3-->
+			<div class="row" style="padding: 3rem, 3rem, 3rem, 3rem;">
+				<div class="" style="text-align: left;">
+
+						<!-- This allows the object to be centered next to the image, but still have indiv lines --->
+					<div class="container-fluid white-background">
+						<div class="row">
+							<h4>The Usefulness of Blockchain</h4> 
+						</div>
+						<div class="row justify-content-center">
+							<div class="col-lg-6 col-md-6 black-font" style="text-align: left;">
+								<img class="img-fluid" src="images/blockchain101/blockchain_use_cases.png">
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<div class="col-md-3 col-lg-3"></div>
+
+
+							
+			</div>
 
 			</div>
-		</div> -->
 
+	<!-- Footer -->
+	<footer class="page-footer custom-footer font-small blue pt-4">
+	    <!-- Footer Links -->
+	    <div class="container-fluid text-center text-md-left">
+	      <!-- Grid row -->
+	      <div class="row justify-content-center">
+	        <!-- Grid column -->
+	        <div class="">
+	          <!-- Content -->
+	          <a href="https://spartanblockchain.org" style="color: white"><h5 class="">Powered By Spartan Blockchain</h5></a>
+	        </div>
+	        <!-- Grid column -->
+	        <hr class="clearfix w-100 d-md-none pb-3">
+	      </div>
+	      <!-- Grid row -->
+	    </div>
+	    <!-- Footer Links -->
+
+	    <!-- Copyright -->
+	    <div class="footer-copyright text-center py-3 white-font">© 2019 Copyright:
+	      <a href="https://www.landgrantgoods.com/"> Land Grant Goods </a>
+	    </div>
+	    <!-- Copyright -->
+
+	</footer>
+	 <!-- Footer -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/parallax.js"></script>
 
@@ -162,15 +182,3 @@
 </html>
 <!-- <h1 class="removefirstheaderspacing"></h1> -->
 
-
-
-<!--Public Notes
-#1: Put all scripts after loading page content so that page content loads  as quickly as possible.
-#2: Keep style on top so shows up styled, not ugly then becomes styled.
-#3: Function goes down because can have page load but not full function yet, feels faster.
-#4: Conveying meaning to assistive technologies; using color to add meaning only provides a visual indication,
-	which will not be conveyed to users of assistive technologies – such as screen readers.
-	Ensure that information denoted by the color is either obvious from the content itself (e.g. the visible text),
-	or is included through alternative means, such as additional text hidden with the .sr-only class.
-#5
---> 

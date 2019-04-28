@@ -1,33 +1,31 @@
+/*
+Notes:
+- Nav bar formatting is below and commented
+
+ */
+body{
+    background-color: rgb(31, 31, 31);
+}
+
+/* div handling classes */
+.white-background {
+    background-color: white;
+}
+
 .parallax-window {
     min-height: 30rem;
     background: rgba(0, 0, 0, 0); /* or use transparent */
 }
 
-.navbar-inner {
-    background: rgba(0, 0, 0, 0);
-}
-
-.nav-bar-additional{
-    padding-right: 5.5rem;
-    padding-left: 2.5rem;
-    padding-top: 1.5rem;
-}
-
-.icon-format{
-    height: 2rem;
-    width: 2rem;
-    background: rgba(0, 0, 0, 0);
-    margin-left: .7rem;
-    margin-right: .7rem;
-}
-
+/* Text  Handling Classes */
 .white-font{
     color: white;
 }
 
 .black-font{
-    color: black;
+    color: black !important;
 }
+.
 
 .bold{
     font-weight: bold
@@ -38,9 +36,10 @@ input{
 }
 
 .vertical-align {
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
+/* Handles QR Code scanner */
 .qrcode-text {
     padding-right: 1.7em;
     margin-right: 0;
@@ -77,6 +76,32 @@ input{
         1px 1px 0 #000;
 }
 
+/* Handles Blockchain101 Body */
+
+.blockchain101-body{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.parallax-title {
+    font-size: 3.25rem;
+}
+.center-vertical{
+    display: flex;
+    align-items: center;
+}
+
+/* Handles Footer */
+.custom-footer{
+    padding-top: 5rem !important;
+    background-color: rgb(31, 31, 31);
+}
+
+/* Allows line breaks with  span then paragraph  tags; Used in BlockChain 101 Page*/
+p span 
+{
+    display: block;
+}
 /*
 .container-parallax{
     width: 100%;
@@ -143,14 +168,29 @@ body {
         height: 200px;
 }
 
+.navbar-inner {
+    background: rgba(0, 0, 0, 0);
+}
+
+.nav-bar-additional{
+    padding-right: 1.5rem;
+    padding-left: 2.5rem;
+    padding-top: 1.5rem;
+}
+
+.icon-format{
+    height: 2rem;
+    width: 2rem;
+    background: rgba(0, 0, 0, 0);
+    margin-left: .7rem;
+    margin-right: .7rem;
+}
+
 @media only screen and (max-width: 540px) {
-    .display-spacing {
-        padding-left: 4%;
-        padding-right: 4%;
-    }
 }
 
 @media only screen and (max-width: 720px) {
+    /* navbar */
     .lgg-logo{
         width: 75px;
         height: 100px;
@@ -159,6 +199,7 @@ body {
 }
 
 @media only screen and (max-width: 960px) {
+    /* navbar */
     .lgg-logo{
         width: 75px;
         height: 100px;
