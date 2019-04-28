@@ -93,11 +93,11 @@ input{
 
 /* Handles Footer */
 .custom-footer{
-    padding-top: 5rem !important;
+    padding-top: 2.5rem !important;
     background-color: rgb(31, 31, 31);
 }
 
-/* Allows line breaks with  span then paragraph  tags; Used in BlockChain 101 Page*/
+/* Allows line breaks with  span then paragraph  tags; Unused atm*/
 p span 
 {
     display: block;
