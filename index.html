@@ -37,9 +37,9 @@
 					  <a class="nav-item nav-link active outlined-text" href="http://localhost:4200/" target="_blank">Launch Web App (Beta)</a>
 						<div id="header_button"> <button onclick="location.href='https://www.landgrantgoods.com/'" type="button" class="btn btn-light">Store (Off-Site)</button> </div>
 						<!--- Need a transparent white icon: <a href="#"><img class="icon-format" src="images/mail_icon.png"></a> --->
-					    <a href="https://twitter.com/landgrantgoods" class="d-lg-block"><img class="icon-format"  src="images/twitter_icon_resize.png"></a>
-					    <a href="https://www.instagram.com/landgrantgoods/" class="d-lg-block"><img class="icon-format" src="images/ig_logo.png"></a>
-					    <a href="https://www.facebook.com/landgrantgoods/" class="d-lg-block"><img class="icon-format" src="images/facebook_logo.png"></a>
+					    <a href="https://twitter.com/landgrantgoods" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format"  src="images/twitter_icon_resize.png"></a>
+					    <a href="https://www.instagram.com/landgrantgoods/" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format" src="images/ig_logo.png"></a>
+					    <a href="https://www.facebook.com/landgrantgoods/" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format" src="images/facebook_logo.png"></a>
 
 					</div>
 			<!--- This  div is for <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">, and the div above is for the div above that --->
@@ -67,12 +67,13 @@
 					<input type=text class=qrcode-text
 					><label class=qrcode-text-btn>
 						<!--- This is the QR loading to open the camera then process the QR image (input then 'onchange'). In the JS code, there is also the additon of success and error handling, and prompting them with a message when the click the qr code to scan('onclick')--->
-						<input type=file
-						       accept="image/*"
-						       capture=environment
-						       onclick="return showQRIntro();"
-						       onchange="openQRCamera(this);"
-						       tabindex=-1>
+						<input class=""
+							type=file
+						    accept="image/*"
+						    capture=environment
+						    onclick="return showQRIntro();"
+						    onchange="openQRCamera(this);"
+						    tabindex=-1>
 					</label>
 
 				</div>
