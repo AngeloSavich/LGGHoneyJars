@@ -83,16 +83,17 @@
 
 	<!-- Footer -->
 	<footer class="page-footer custom-footer font-small blue pt-4">
+	    
 	    <!-- Footer Links -->
-	    <div class="container-fluid text-center text-md-left">
+	    <div class="container-fluid text-center text-md-left">	      
 	      <!-- Grid row -->
-	      <div class="row justify-content-center">
+	      <div class="row justify-content-center">	        
 	        <!-- Grid column -->
 	        <div class="">
 	          <!-- Content -->
 	          <a href="https://spartanblockchain.org" style="color: white"><h5 class="">Powered By Spartan Blockchain</h5></a>
 	        </div>
-	        <!-- Grid column -->
+	        <!-- Grid column -->	        
 	        <hr class="clearfix w-100 d-md-none pb-3">
 	      </div>
 	      <!-- Grid row -->
@@ -115,7 +116,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	
-	<!--- QR Code scanner modified zxing scripts for QR algorithmic processing. --->
+	<!--- QR Code scanner using modified zxing scripts for QR processing. --->
 	<script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
 	<!--- Script for QR Code --->
 	<script type="text/javascript">
@@ -134,13 +135,11 @@
 		  };
 		  reader.readAsDataURL(node.files[0]);
 		}
-		// this tells the user what the purpose of the scanner is and is used in the html above from the scanner input
+		// this tells the user what the purpose of the scanner is. It is used in the html above from the scanner input
 		function showQRIntro() {
 		  return confirm("Use your camera to take a picture of a QR code.");
 		}
 	</script>
-
-	
 
 	</body>
 </html>
