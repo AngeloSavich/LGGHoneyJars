@@ -133,13 +133,30 @@
 		    };
 		    qrcode.decode(reader.result);
 		  };
-		  reader.readAsDataURL(node.files[0]);
+		  //var reader.result
+		  //reader.readAsDataURL(node.files[0]);
 		}
 		// this tells the user what the purpose of the scanner is. It is used in the html above from the scanner input
 		function showQRIntro() {
 		  return confirm("Use your camera to take a picture of a QR code.");
 		}
 	</script>
+
+	<!--- Backup script for improperly routing data into Angular Web Apps through jQuery
+		<script>
+			function getQueryParam(param) {
+		    param = param.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		    var regexS = "[\\?&]" + param + "=([^&#]*)",
+		        regex = new RegExp( regexS ),
+		        results = regex.exec(document.URL);
+		    if (results === null || (results && typeof(results[1]) !== 'string' && results[1].length)) {
+		        return '';
+		    } else {
+		        return decodeURIComponent(results[1]).replace(/\+/g, ' ');
+		    }
+			};
+		</script>
+	--->
 
 	</body>
 </html>
