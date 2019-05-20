@@ -25,7 +25,6 @@ body{
 .black-font{
     color: black !important;
 }
-.
 
 .bold{
     font-weight: bold
@@ -166,6 +165,12 @@ body {
 .lgg-logo{
         width: 150px;
         height: 200px;
+}
+
+.darken_image {
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
 }
 
 .navbar-inner {

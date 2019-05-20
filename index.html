@@ -68,6 +68,7 @@
 					><label class=qrcode-text-btn>
 						<!--- This is the QR loading to open the camera then process the QR image (input then 'onchange'). In the JS code, there is also the additon of success and error handling, and prompting them with a message when the click the qr code to scan('onclick')--->
 						<input class=""
+							id="qrcode"
 							type=file
 						    accept="image/*"
 						    capture=environment
@@ -75,6 +76,11 @@
 						    onchange="openQRCamera(this);"
 						    tabindex=-1>
 					</label>
+
+					<button onclick="qrCodeTojQuery()">
+						Load
+
+					</button>
 
 				</div>
 				<div class="col-lg-4 col-md-3"> </div>
@@ -133,13 +139,18 @@
 		    };
 		    qrcode.decode(reader.result);
 		  };
-		  
-		  var reader.result
+
+		  //var qrResult = qrcode.decode(reader.result);
 		  reader.readAsDataURL(node.files[0]);
 		}
 		// this tells the user what the purpose of the scanner is. It is used in the html above from the scanner input
 		function showQRIntro() {
 		  return confirm("Use your camera to take a picture of a QR code.");
+		}
+
+		function qrCodeTojQuery(){
+			var qrCodeData = document.getElementById("qrcode").value;
+			window.open("http://localhost:4200/"+qrCodeData, _blank, Specs)
 		}
 	</script>
 
