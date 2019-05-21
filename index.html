@@ -64,12 +64,10 @@
 					<p class="bold">Enter your honey's unique identifying number below!</p>
 					
 					<!--- QR input field and element --->
-					<input type=text class=qrcode-text
-					><label class=qrcode-text-btn>
-						Heey
+					<input type="text" class="qrcode-text" id="qrcode"
+					><label class="qrcode-text-btn">
 						<!--- This is the QR loading to open the camera then process the QR image (input then 'onchange'). In the JS code, there is also the additon of success and error handling, and prompting them with a message when the click the qr code to scan('onclick')--->
-						<input class=""
-							id="qrcode"
+						<input
 							type=file
 						    accept="image/*"
 						    capture=environment
@@ -149,9 +147,9 @@
 		}
 
 		function qrCodeTojQuery(){
-			var qrCodeData = document.getElementById("qrcode").value;
+			var qrCodeData = document.getElementById('qrcode').value;
 			alert(qrCodeData);
-			window.open("http://localhost:4200/?"+qrCodeData, _blank, Specs);
+			window.open("http://localhost:4200?ID="+qrCodeData);
 		}
 	</script>
 
