@@ -66,6 +66,7 @@
 					<!--- QR input field and element --->
 					<input type=text class=qrcode-text
 					><label class=qrcode-text-btn>
+						Heey
 						<!--- This is the QR loading to open the camera then process the QR image (input then 'onchange'). In the JS code, there is also the additon of success and error handling, and prompting them with a message when the click the qr code to scan('onclick')--->
 						<input class=""
 							id="qrcode"
@@ -79,7 +80,6 @@
 
 					<button onclick="qrCodeTojQuery()">
 						Load
-
 					</button>
 
 				</div>
@@ -149,9 +149,9 @@
 		}
 
 		function qrCodeTojQuery(){
-			alert("testing");
 			var qrCodeData = document.getElementById("qrcode").value;
-			window.open("http://localhost:4200/"+qrCodeData, _blank, Specs)
+			alert(qrCodeData);
+			window.open("http://localhost:4200/?"+qrCodeData, _blank, Specs);
 		}
 	</script>
 
