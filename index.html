@@ -32,7 +32,7 @@
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
 					<div class="navbar-nav">
 						<!--- This  handles the links on the nav bar --->
-					  <a class="nav-item nav-link active outlined-text" href="index.html">Home <span class="sr-only">(current)</span></a>
+					  <a class="nav-item nav-link active outlined-text" href="index.html">Home<span class="sr-only">(current)</span></a>
 					  <a class="nav-item nav-link active outlined-text" href="blockchain101.html">Blockchain 101</a>
 					  <a class="nav-item nav-link active outlined-text" href="http://localhost:4200/" target="_blank">Launch Web App (Beta)</a>
 						<div id="header_button"> <button onclick="location.href='https://www.landgrantgoods.com/'" type="button" class="btn btn-light">Store (Off-Site)</button> </div>
@@ -49,18 +49,18 @@
 			<div class="container-fluid">
 				<div class="row justify-content-center" style="padding-top: 3.5rem;">
 					<div class="col-lg-5 col-md-3"> </div>
-					<div class="col-lg-2 col-md-6 white-font outlined-text" style="text-align: center"><h1 class="parallax-title"> HONEY </h1></div>
+					<div class="col-lg-2 col-md-6 white-font outlined-text" style="text-align: center"><h1 class="parallax-title">HONEY</h1></div>
 					<div class="col-lg-5 col-md-3"> </div>
 				</div>
 			</div>
 		<!--- End of first parallax --->	
 		</div>
 
-		<div class="container-fluid white-background ">
+		<div class="container-fluid white-background">
 			<div class="row justify-content-center" style="padding-top: 3rem; padding-bottom: 3rem;">
 				<div class="col-lg-4 "> </div>
 				<div class="col-lg-4 black-font" style="text-align: center;">
-					<p> The "Bailey Bee Team" was first created in 2014 as a way to introduce bees to the same living space as undergraduate students. Fast forward to the present and the same colonies, along with a few more at the Student Organic Farm are producing honey that is being sold under the Land Grant Goods name. </p>
+					<p>The "Bailey Bee Team" was first created in 2014 as a way to introduce bees to the same living space as undergraduate students. Fast forward to the present and the same colonies, along with a few more at the Student Organic Farm are producing honey that is being sold under the Land Grant Goods name.</p>
 					<p class="bold">Enter your honey's unique identifying number below!</p>
 					
 					<!--- QR input field and element --->
@@ -76,14 +76,60 @@
 						    tabindex=-1>
 					</label>
 
-					<button onclick="qrCodeTojQuery()">
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="OnLoadButtonClick()">
 						Load
 					</button>
-
 				</div>
 				<div class="col-lg-4 col-md-3"> </div>
 			</div>
+
+		<div class="row" id="reloadOnFetch" style="padding-bottom: 2rem;">
+			<div class="col-lg-2 col-xl-2"></div>
+			<div class="col-md-12 col-lg-8 col-xl-8">
+				<!-- JarID Data Table Collapse handler-->
+				<div class="collapse" id="collapseExample">
+					<div class="card card-body">
+				  	<!-- JarID Data Table-->
+				    	<div class="table-responsive">
+							<table class="table table-bordered">
+								<thead class="thead-light">
+								<tr>
+									<th scope="col">Type</th>
+									<th scope="col">Information</th>
+								</tr>
+								</thead>
+
+								<tbody>
+								<tr>
+									<th scope="row">JarID:</th>
+									<td id="jarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Packager:</th>
+									<td id="packager"></td>
+								</tr>
+								<tr>
+									<th scope="row">Status:</th>
+									<td id="status"></td>
+								</tr>
+								<tr>
+									<th scope="row">Storage Location:</th>
+									<td id="storageLocation"></td>
+								</tr>
+								<tr>
+									<th scope="row">Transactions:</th>
+									<td id="transactions"></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-lg-2 col-xl-2"></div>
 		</div>
+	</div>
 
 	<!-- Footer -->
 	<footer class="page-footer custom-footer font-small blue pt-4">
@@ -113,9 +159,11 @@
 	</footer>
 	 <!-- Footer -->
 
+	 <!-- parralax -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/parallax.js"></script>
 
+	<!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -148,25 +196,67 @@
 
 		function qrCodeTojQuery(){
 			var qrCodeData = document.getElementById('qrcode').value;
-			window.open("http://localhost:4200?id="+qrCodeData);
 		}
 	</script>
 
-	<!--- Backup script for improperly routing data into Angular Web Apps through jQuery
+	<!-- Script for populating customer product data -->
+	<script>
+			// These have the variable values assigned to them
+			const jarIDValueDisplay = document.getElementById('jarId');
+			const packagerValueDisplay = document.getElementById('packager');
+			const statusValueDisplay = document.getElementById('status');
+			const storageLocationValueDisplay = document.getElementById('storageLocation');
+			const transactionsValueDisplay = document.getElementById('transactions');
+
+			//  returns none for empty info instead of a blank space or empty list
+			function fixValue(object) {
+				for (var value in object){
+				if (object.hasOwnProperty(value)){
+					return object;
+				}
+				}
+				return "None"
+			}
+
+			 // This assigns the URL to get the files depending on the id.
+  			var url = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar';
+			function JarIdFetcher(){
+			//pulls JarId from field
+			var qrCodeData = document.getElementById('qrcode').value;
+			// starts processing the id
+				fetch(url)
+				.then((resp) => resp.json())
+				.then(function(data) {
+					let consumerData = data[0]; // Pulls first dictionary from list, so uses top result.
+					// Pulls all data for variables to be displayed
+					var jarId = fixValue(consumerData.jarId);
+					var packager = fixValue(consumerData.packager);
+					var status = fixValue(consumerData.status);
+					var storageLocation = fixValue(consumerData.storageLocation);
+					var transactions = fixValue(consumerData.transactions);
+					//Undisplayed variables I think are better to display, but the communication has been poor so I don't know.
+					// var batch
+					// var timeStamp
+					// var sourcingLocation
+					// var dateTime = info.
+
+					// Populates with data
+					jarIDValueDisplay.innerHTML = `${jarId}`;
+					packagerValueDisplay.innerHTML = `${packager}`;
+					statusValueDisplay.innerHTML = `${status}`;
+					storageLocationValueDisplay.innerHTML = `${storageLocation}`;
+					transactionsValueDisplay.innerHTML = `${transactions}`;
+					})
+					// This is required to reload and populate the element
+				.catch(function(error) {
+			    console.log(error)
+				})}
+			</script>
 		<script>
-			function getQueryParam(param) {
-		    param = param.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-		    var regexS = "[\\?&]" + param + "=([^&#]*)",
-		        regex = new RegExp( regexS ),
-		        results = regex.exec(document.URL);
-		    if (results === null || (results && typeof(results[1]) !== 'string' && results[1].length)) {
-		        return '';
-		    } else {
-		        return decodeURIComponent(results[1]).replace(/\+/g, ' ');
-		    }
-			};
+				function OnLoadButtonClick(){
+					JarIdFetcher();
+				}
 		</script>
-	--->
 
 	</body>
 </html>
