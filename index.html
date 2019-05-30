@@ -64,7 +64,7 @@
 					<p class="bold">Enter your honey's unique identifying number below!</p>
 					
 					<!--- QR input field and element --->
-					<input type="text" class="qrcode-text" id="qrcode"
+					<input type="text" class="qrcode-text" id="qrcode" placeholder="Enter JarID or Scan a QR Code!"
 					><label class="qrcode-text-btn">
 						<!--- This is the QR loading to open the camera then process the QR image (input then 'onchange'). In the JS code, there is also the additon of success and error handling, and prompting them with a message when the click the qr code to scan('onclick')--->
 						<input
@@ -219,15 +219,17 @@
 			}
 
 			 // This assigns the URL to get the files depending on the id.
-  			var url = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar';
 			function JarIdFetcher(){
 			//pulls JarId from field
-			var qrCodeData = document.getElementById('qrcode').value;
+			qrCodeData = document.getElementById('qrcode').value;
+			if (qrCodeData){var URL = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar/'+qrCodeData;}
+			//var url = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar/'+qrCodeData;
+			
 			// starts processing the id
-				fetch(url)
+				fetch(URL)
 				.then((resp) => resp.json())
 				.then(function(data) {
-					let consumerData = data[0]; // Pulls first dictionary from list, so uses top result.
+					let consumerData = data; // Pulls first dictionary from list, so uses top result.
 					// Pulls all data for variables to be displayed
 					var jarId = fixValue(consumerData.jarId);
 					var packager = fixValue(consumerData.packager);
