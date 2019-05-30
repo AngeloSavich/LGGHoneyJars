@@ -173,20 +173,26 @@ body {
     opacity: 0.5;
 }
 
-.navbar-inner {
-    background: rgba(0, 0, 0, 0);
-}
-
 .nav-bar-additional{
     padding-right: 1.5rem;
     padding-left: 2.5rem;
     padding-top: 1.5rem;
 }
 
+.grey-background{
+    background-color: rgb(38,38,38); /* 31,31,31 is the old dark grey*/
+}
+ .center-horizontally{
+     
+ }
+.inline-links{
+display: inline-block;
+}
+
 .icon-format{
     height: 2rem;
     width: 2rem;
-    background: rgba(0, 0, 0, 0);
+    background-color: rgba(43, 43, 43, 0);
     margin-left: .7rem;
     margin-right: .7rem;
 }

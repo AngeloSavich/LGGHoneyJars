@@ -37,6 +37,7 @@
 					  <a class="nav-item nav-link active outlined-text" href="http://localhost:4200/" target="_blank">Launch Web App (Beta)</a>
 						<div id="header_button"> <button onclick="location.href='https://www.landgrantgoods.com/'" type="button" class="btn btn-light">Store (Off-Site)</button> </div>
 						<!--- Need a transparent white icon: <a href="#"><img class="icon-format" src="images/mail_icon.png"></a> --->
+					    
 					    <a href="https://twitter.com/landgrantgoods" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format"  src="images/twitter_icon_resize.png"></a>
 					    <a href="https://www.instagram.com/landgrantgoods/" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format" src="images/ig_logo.png"></a>
 					    <a href="https://www.facebook.com/landgrantgoods/" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format" src="images/facebook_logo.png"></a>
@@ -64,7 +65,7 @@
 					<p class="bold">Enter your honey's unique identifying number below!</p>
 					
 					<!--- QR input field and element --->
-					<input type="text" class="qrcode-text" id="qrcode" placeholder="Enter JarID or Scan a QR Code!"
+					<input type="text" class="qrcode-text" id="qrcode" placeholder="Enter Jar ID or Scan a QR Code!"
 					><label class="qrcode-text-btn">
 						<!--- This is the QR loading to open the camera then process the QR image (input then 'onchange'). In the JS code, there is also the additon of success and error handling, and prompting them with a message when the click the qr code to scan('onclick')--->
 						<input
@@ -86,12 +87,13 @@
 		<div class="row" id="reloadOnFetch" style="padding-bottom: 2rem;">
 			<div class="col-lg-2 col-xl-2"></div>
 			<div class="col-md-12 col-lg-8 col-xl-8">
-				<!-- JarID Data Table Collapse handler-->
+				<!-- JarID Data Table Collapse handler, MAYBE MAKE IT A MODAL-->
 				<div class="collapse" id="collapseExample">
 					<div class="card card-body">
 				  	<!-- JarID Data Table-->
 				    	<div class="table-responsive">
 							<table class="table table-bordered">
+								<!--Main-->
 								<thead class="thead-light">
 								<tr>
 									<th scope="col">Type</th>
@@ -101,24 +103,92 @@
 
 								<tbody>
 								<tr>
-									<th scope="row">JarID:</th>
-									<td id="jarId"></td>
+									<th scope="row">Jar ID:</th>
+									<td id="jarIdId"></td>
 								</tr>
 								<tr>
 									<th scope="row">Packager:</th>
-									<td id="packager"></td>
+									<td id="packagerId"></td>
 								</tr>
 								<tr>
 									<th scope="row">Status:</th>
-									<td id="status"></td>
+									<td id="statusId"></td>
 								</tr>
 								<tr>
 									<th scope="row">Storage Location:</th>
-									<td id="storageLocation"></td>
+									<td id="storageLocationId"></td>
+								</tr>
+
+								<!--Batch-->
+								<thead class="thead-light">
+								<tr>
+									<th colspan="2" scope="col">Batch Transactions</th>
+								</tr>
+								</thead>
+
+								<tr>
+									<th scope="row">Date</th>
+									<td id="dateTimeBatchId"></td>
 								</tr>
 								<tr>
-									<th scope="row">Transactions:</th>
-									<td id="transactions"></td>
+									<th scope="row">Employee</th>
+									<td id="employeeBatchId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Batch</th>
+									<td id="batchBatchId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Transaction ID</th>
+									<td id="transactionIdBatchId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Timestamp</th>
+									<td id="timestampBatchId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Jar ID</th>
+									<td id="jarIdBatchId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Status</th>
+									<td id="statusBatchId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Storage Location</th>
+									<td id="storageLocationBatchId"></td>
+								</tr>
+
+								<!--Jar-->
+								<thead class="thead-light">
+								<tr>
+									<th colspan="2" scope="col">Jar Transactions</th>
+								</tr>
+								</thead>
+
+								<tr>
+									<th scope="row">Date</th>
+									<td id="dateTimeJarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Employee</th>
+									<td id="employeeJarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Jar</th>
+									<td id="jarNumberJarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Transaction ID</th>
+									<td id="transactionIdJarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Timestamp</th>
+									<td id="timestampJarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Status</th>
+									<td id="statusJarId"></td>
 								</tr>
 								</tbody>
 							</table>
@@ -201,28 +271,51 @@
 
 	<!-- Script for populating customer product data -->
 	<script>
-			// These have the variable values assigned to them
-			const jarIDValueDisplay = document.getElementById('jarId');
-			const packagerValueDisplay = document.getElementById('packager');
-			const statusValueDisplay = document.getElementById('status');
-			const storageLocationValueDisplay = document.getElementById('storageLocation');
-			const transactionsValueDisplay = document.getElementById('transactions');
+			// These have the main variable values assigned to them. The JarIdId has Id twice to show its an html element id. Etc, applies to the rest
+			const jarIdValueDisplay = document.getElementById('jarIdId');
+			const packagerValueDisplay = document.getElementById('packagerId');
+			const statusValueDisplay = document.getElementById('statusId');
+			const storageLocationValueDisplay = document.getElementById('storageLocationId');
+			const transactionsValueDisplay = document.getElementById('transactionsId');
+
+			//These have the batch var values assigned to them
+			const dateTimeBatchValueDisplay = document.getElementById('dateTimeBatchId');
+			const employeeBatchValueDisplay = document.getElementById('employeeBatchId');
+			const batchBatchValueDisplay = document.getElementById('batchBatchId');
+			const transactionIdBatchValueDisplay = document.getElementById('transactionIdBatchId');
+			const timestampBatchValueDisplay = document.getElementById('timestampBatchId');
+			const jarIdBatchValueDisplay = document.getElementById('jarIdBatchId');
+			const statusBatchValueDisplay = document.getElementById('statusBatchId');
+			const storageLocationBatchValueDisplay = document.getElementById('storageLocationBatchId');
+
+			//These have the jar batch var values assigned to them
+			const dateTimeJarValueDisplay = document.getElementById('dateTimeJarId');
+			const employeeJarValueDisplay = document.getElementById('employeeJarId');
+			const jarJarValueDisplay = document.getElementById('jarNumberJarId');
+			const transactionIdJarValueDisplay = document.getElementById('transactionIdJarId');
+			const timestampJarValueDisplay = document.getElementById('timestampJarId');
+			const statusJarValueDisplay = document.getElementById('statusJarId');
 
 			//  returns none for empty info instead of a blank space or empty list
-			function fixValue(object) {
+			function FixValue(object) {
 				for (var value in object){
-				if (object.hasOwnProperty(value)){
-					return object;
-				}
+					if (object.hasOwnProperty(value)){
+						return object;
+					}
 				}
 				return "None"
+			}
+
+			function PullDataAfterHash(string){
+				return string.split('#').pop()
 			}
 
 			 // This assigns the URL to get the files depending on the id.
 			function JarIdFetcher(){
 			//pulls JarId from field
 			qrCodeData = document.getElementById('qrcode').value;
-			if (qrCodeData){var URL = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar/'+qrCodeData;}
+			if (qrCodeData){var URL = 'http://localhost:3000/api/honeyJar/'+qrCodeData;}
+			else{var URL = null;}
 			//var url = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar/'+qrCodeData;
 			
 			// starts processing the id
@@ -230,25 +323,57 @@
 				.then((resp) => resp.json())
 				.then(function(data) {
 					let consumerData = data; // Pulls first dictionary from list, so uses top result.
-					// Pulls all data for variables to be displayed
-					var jarId = fixValue(consumerData.jarId);
-					var packager = fixValue(consumerData.packager);
-					var status = fixValue(consumerData.status);
-					var storageLocation = fixValue(consumerData.storageLocation);
-					var transactions = fixValue(consumerData.transactions);
-					//Undisplayed variables I think are better to display, but the communication has been poor so I don't know.
-					// var batch
-					// var timeStamp
-					// var sourcingLocation
-					// var dateTime = info.
 
-					// Populates with data
-					jarIDValueDisplay.innerHTML = `${jarId}`;
-					packagerValueDisplay.innerHTML = `${packager}`;
-					statusValueDisplay.innerHTML = `${status}`;
-					storageLocationValueDisplay.innerHTML = `${storageLocation}`;
-					transactionsValueDisplay.innerHTML = `${transactions}`;
+					// Pulls all  Maindata for variables to be displayed from server
+					var jarIdString = FixValue(consumerData.jarId);
+					var packagerString = FixValue(consumerData.packager);
+					var statusString = FixValue(consumerData.status);
+					var storageLocationString = FixValue(consumerData.storageLocation);
+
+					// Populates Batch Data from server
+					var dateTimeBatchString = FixValue(consumerData.batchTransactions[0].dateTime);
+					var employeeBatchString = PullDataAfterHash(FixValue(consumerData.batchTransactions[0].employee));  //pull out val from after hash
+					var batchBatchString = PullDataAfterHash(FixValue(consumerData.batchTransactions[0].batch)); //pull out vall from after hash
+					var transactionIdBatchString = FixValue(consumerData.batchTransactions[0].transactionID);
+					var timestampBatchString = FixValue(consumerData.batchTransactions[0].timestamp);
+					var jarIDBatchBatchString = FixValue(consumerData.batchTransactions[0].jarID);
+					var statusBatchString = FixValue(consumerData.batchTransactions[0].status);
+					var storageLocationBatchString = FixValue(consumerData.batchTransactions[0].storageLocation);
+
+					// Populates Jar Data from server
+					var dateTimeJarString = FixValue(consumerData.jarTransactions[0].dateTime);
+					var employeeJarString = PullDataAfterHash(FixValue(consumerData.jarTransactions[0].employee)); //pull out name from after hash
+					var jarJarString = PullDataAfterHash(FixValue(consumerData.jarTransactions[0].jar)); //pull out val from after hash
+					var transactionIdJarString = FixValue(consumerData.jarTransactions[0].transaction);
+					var timestampJarString  = FixValue(consumerData.jarTransactions[0].timestamp);
+					var statusJarString  = FixValue(consumerData.jarTransactions[0].status);
+
+					// Populates with Main data
+					jarIdValueDisplay.innerHTML = `${jarIdString}`;
+					packagerValueDisplay.innerHTML = `${packagerString}`;
+					statusValueDisplay.innerHTML = `${statusString}`;
+					storageLocationValueDisplay.innerHTML = `${storageLocationString}`;
+
+					// Populates Batch Data
+					dateTimeBatchValueDisplay.innerHTML = `${dateTimeBatchString}`;
+					employeeBatchValueDisplay.innerHTML = `${employeeBatchString}`;
+					batchBatchValueDisplay.innerHTML = `${batchBatchString}`;
+					transactionIdBatchValueDisplay.innerHTML = `${transactionIdBatchString}`;
+					timestampBatchValueDisplay.innerHTML = `${timestampBatchString}`;
+					jarIdBatchValueDisplay.innerHTML = `${jarIDBatchBatchString}`;
+					statusBatchValueDisplay.innerHTML = `${statusBatchString}`;
+					storageLocationBatchValueDisplay.innerHTML = `${storageLocationBatchString}`;
+					
+					// Populates Jar Data
+					dateTimeJarValueDisplay.innerHTML = `${dateTimeJarString}`;
+					employeeJarValueDisplay.innerHTML = `${employeeJarString}`;
+					jarJarValueDisplay.innerHTML = `${jarJarString}`;
+					transactionIdJarValueDisplay.innerHTML = `${transactionIdJarString}`;
+					timestampJarValueDisplay.innerHTML = `${timestampJarString}`;
+					statusJarValueDisplay.innerHTML = `${statusJarString}`;
+
 					})
+
 					// This is required to reload and populate the element
 				.catch(function(error) {
 			    console.log(error)
@@ -258,6 +383,8 @@
 				function OnLoadButtonClick(){
 					JarIdFetcher();
 				}
+
+				//alert("This site is not fully developed. I will get it done once we have established backend formatting so I don't have to keep redoing the front end formatting.");
 		</script>
 
 	</body>
