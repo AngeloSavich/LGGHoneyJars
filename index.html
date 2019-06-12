@@ -324,29 +324,38 @@
 				.then(function(data) {
 					let consumerData = data; // Pulls first dictionary from list, so uses top result.
 
-					// Pulls all  Maindata for variables to be displayed from server
+					// Pulls all data from server for variables 
 					var jarIdString = FixValue(consumerData.jarId);
 					var packagerString = FixValue(consumerData.packager);
 					var statusString = FixValue(consumerData.status);
 					var storageLocationString = FixValue(consumerData.storageLocation);
 
-					// Populates Batch Data from server
-					var dateTimeBatchString = FixValue(consumerData.batchTransactions[0].dateTime);
-					var employeeBatchString = PullDataAfterHash(FixValue(consumerData.batchTransactions[0].employee));  //pull out val from after hash
-					var batchBatchString = PullDataAfterHash(FixValue(consumerData.batchTransactions[0].batch)); //pull out vall from after hash
-					var transactionIdBatchString = FixValue(consumerData.batchTransactions[0].transactionID);
-					var timestampBatchString = FixValue(consumerData.batchTransactions[0].timestamp);
-					var jarIDBatchBatchString = FixValue(consumerData.batchTransactions[0].jarID);
-					var statusBatchString = FixValue(consumerData.batchTransactions[0].status);
-					var storageLocationBatchString = FixValue(consumerData.batchTransactions[0].storageLocation);
+					// Pulls Batch Data from server. Goes through each set of data
+					for (const batchDict of consumerData.batchTransactions) {
+						var dateTimeBatchString = FixValue(batchDict.dateTime);
+						var employeeBatchString = PullDataAfterHash(FixValue(batchDict.employee));  //pull out val from after hash
+						var batchBatchString = PullDataAfterHash(FixValue(batchDict.batch)); //pull out vall from after hash
+						var transactionIdBatchString = FixValue(batchDict.transactionID);
+						var timestampBatchString = FixValue(batchDict.timestamp);
+						var jarIDBatchBatchString = FixValue(batchDict.jarID);
+						var statusBatchString = FixValue(batchDict.status);
+						var storageLocationBatchString = FixValue(batchDict.storageLocation);
+						break
+					}
+					
 
-					// Populates Jar Data from server
-					var dateTimeJarString = FixValue(consumerData.jarTransactions[0].dateTime);
-					var employeeJarString = PullDataAfterHash(FixValue(consumerData.jarTransactions[0].employee)); //pull out name from after hash
-					var jarJarString = PullDataAfterHash(FixValue(consumerData.jarTransactions[0].jar)); //pull out val from after hash
-					var transactionIdJarString = FixValue(consumerData.jarTransactions[0].transaction);
-					var timestampJarString  = FixValue(consumerData.jarTransactions[0].timestamp);
-					var statusJarString  = FixValue(consumerData.jarTransactions[0].status);
+					// Pulls Jar Data from server, goes through  each set
+					for (const jarDict of consumerData.jarTransactions) {
+						var dateTimeJarString = FixValue(jarDict.dateTime);
+						var employeeJarString = PullDataAfterHash(FixValue(jarDict.employee)); //pull out name from after hash
+						var jarJarString = PullDataAfterHash(FixValue(jarDict.jar)); //pull out val from after hash
+						var transactionIdJarString = FixValue(jarDict.transaction);
+						var timestampJarString  = FixValue(jarDict.timestamp);
+						var statusJarString  = FixValue(jarDict.status);
+						break
+					}
+
+
 
 					// Populates with Main data
 					jarIdValueDisplay.innerHTML = `${jarIdString}`;
