@@ -92,7 +92,7 @@
 					<div class="card card-body">
 				  	<!-- JarID Data Table-->
 				    	<div class="table-responsive">
-							<table class="table table-bordered">
+							<table class="table table-bordered" id="dataTable">
 								<!--Main-->
 								<thead class="thead-light">
 								<tr>
@@ -107,10 +107,6 @@
 									<td id="jarIdId"></td>
 								</tr>
 								<tr>
-									<th scope="row">Packager:</th>
-									<td id="packagerId"></td>
-								</tr>
-								<tr>
 									<th scope="row">Status:</th>
 									<td id="statusId"></td>
 								</tr>
@@ -122,7 +118,7 @@
 								<!--Batch-->
 								<thead class="thead-light">
 								<tr>
-									<th colspan="2" scope="col">Batch Transactions</th>
+									<th class="justify-content-center" colspan="2" scope="col">Batch Transactions</th>
 								</tr>
 								</thead>
 
@@ -147,6 +143,10 @@
 									<td id="timestampBatchId"></td>
 								</tr>
 								<tr>
+									<th scope="row">Temperature (Celsius)</th>
+									<td id="tempBatchId"></td>
+								</tr>
+	<!-- 						<tr>
 									<th scope="row">Jar ID</th>
 									<td id="jarIdBatchId"></td>
 								</tr>
@@ -157,12 +157,12 @@
 								<tr>
 									<th scope="row">Storage Location</th>
 									<td id="storageLocationBatchId"></td>
-								</tr>
+								</tr> -->
 
 								<!--Jar-->
 								<thead class="thead-light">
 								<tr>
-									<th colspan="2" scope="col">Jar Transactions</th>
+									<th class="justify-content-center" colspan="2" scope="col">Jar Transactions</th>
 								</tr>
 								</thead>
 
@@ -273,7 +273,7 @@
 	<script>
 			// These have the main variable values assigned to them. The JarIdId has Id twice to show its an html element id. Etc, applies to the rest
 			const jarIdValueDisplay = document.getElementById('jarIdId');
-			const packagerValueDisplay = document.getElementById('packagerId');
+			//const packagerValueDisplay = document.getElementById('packagerId');
 			const statusValueDisplay = document.getElementById('statusId');
 			const storageLocationValueDisplay = document.getElementById('storageLocationId');
 			const transactionsValueDisplay = document.getElementById('transactionsId');
@@ -284,9 +284,10 @@
 			const batchBatchValueDisplay = document.getElementById('batchBatchId');
 			const transactionIdBatchValueDisplay = document.getElementById('transactionIdBatchId');
 			const timestampBatchValueDisplay = document.getElementById('timestampBatchId');
-			const jarIdBatchValueDisplay = document.getElementById('jarIdBatchId');
-			const statusBatchValueDisplay = document.getElementById('statusBatchId');
-			const storageLocationBatchValueDisplay = document.getElementById('storageLocationBatchId');
+			const tempBatchValueDisplay = document.getElementById('tempBatchId');
+			// const jarIdBatchValueDisplay = document.getElementById('jarIdBatchId');
+			// const statusBatchValueDisplay = document.getElementById('statusBatchId');
+			// const storageLocationBatchValueDisplay = document.getElementById('storageLocationBatchId');
 
 			//These have the jar batch var values assigned to them
 			const dateTimeJarValueDisplay = document.getElementById('dateTimeJarId');
@@ -312,8 +313,10 @@
 
 			 // This assigns the URL to get the files depending on the id.
 			function JarIdFetcher(){
-			//pulls JarId from field
-			qrCodeData = document.getElementById('qrcode').value;
+
+			
+			qrCodeData = document.getElementById('qrcode').value;  //pulls JarId from field
+			const dataTableToPopulate = document.getElementById('dataTable'); // This specifies where added results will go.
 			if (qrCodeData){var URL = 'http://localhost:3000/api/honeyJar/'+qrCodeData;}
 			else{var URL = null;}
 			//var url = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar/'+qrCodeData;
@@ -325,61 +328,66 @@
 					let consumerData = data; // Pulls first dictionary from list, so uses top result.
 
 					// Pulls all data from server for variables 
-					var jarIdString = FixValue(consumerData.jarId);
-					var packagerString = FixValue(consumerData.packager);
-					var statusString = FixValue(consumerData.status);
-					var storageLocationString = FixValue(consumerData.storageLocation);
+					var jarIdString = consumerData.jarId;
+					//var packagerString = consumerData.packager;
+					var statusString = consumerData.status;
+					var storageLocationString = consumerData.storageLocation;
 
 					// Pulls Batch Data from server. Goes through each set of data
 					for (const batchDict of consumerData.batchTransactions) {
-						var dateTimeBatchString = FixValue(batchDict.dateTime);
-						var employeeBatchString = PullDataAfterHash(FixValue(batchDict.employee));  //pull out val from after hash
-						var batchBatchString = PullDataAfterHash(FixValue(batchDict.batch)); //pull out vall from after hash
-						var transactionIdBatchString = FixValue(batchDict.transactionID);
-						var timestampBatchString = FixValue(batchDict.timestamp);
-						var jarIDBatchBatchString = FixValue(batchDict.jarID);
-						var statusBatchString = FixValue(batchDict.status);
-						var storageLocationBatchString = FixValue(batchDict.storageLocation);
+						var dateTimeBatchString = batchDict.dateTime;
+						var employeeBatchString = PullDataAfterHash(batchDict.employee);  //pull out val from after hash
+						var batchBatchString = PullDataAfterHash(batchDict.batch); //pull out vall from after hash
+						var transactionIdBatchString = batchDict.transactionID;
+						var timestampBatchString = batchDict.timestamp;
+						var tempBatchString = batchDict.centigrade;
+						// var jarIDBatchBatchString = batchDict.jarID;
+						// var statusBatchString = batchDict.status;
+						// var storageLocationBatchString = batchDict.storageLocation;
 						break
 					}
 					
 
 					// Pulls Jar Data from server, goes through  each set
 					for (const jarDict of consumerData.jarTransactions) {
-						var dateTimeJarString = FixValue(jarDict.dateTime);
-						var employeeJarString = PullDataAfterHash(FixValue(jarDict.employee)); //pull out name from after hash
-						var jarJarString = PullDataAfterHash(FixValue(jarDict.jar)); //pull out val from after hash
-						var transactionIdJarString = FixValue(jarDict.transaction);
-						var timestampJarString  = FixValue(jarDict.timestamp);
-						var statusJarString  = FixValue(jarDict.status);
+						var dateTimeJarString = jarDict.dateTime;
+						var employeeJarString = PullDataAfterHash(jarDict.employee); //pull out name from after hash
+						var jarJarString = PullDataAfterHash(jarDict.jar); //pull out val from after hash
+						var transactionIdJarString = jarDict.transaction;
+						var timestampJarString  = jarDict.timestamp;
+						var statusJarString  = jarDict.status;
 						break
 					}
 
-
+// So in the two bubbles above have it first add a thead element for transaction i, i being a variable number. Then have it add the table row and tds by appending them to the big table above.
 
 					// Populates with Main data
-					jarIdValueDisplay.innerHTML = `${jarIdString}`;
-					packagerValueDisplay.innerHTML = `${packagerString}`;
-					statusValueDisplay.innerHTML = `${statusString}`;
-					storageLocationValueDisplay.innerHTML = `${storageLocationString}`;
+					jarIdValueDisplay.innerHTML = FixValue(`${jarIdString}`);
+					//packagerValueDisplay.innerHTML = FixValue(`${packagerString}`);
+					statusValueDisplay.innerHTML = FixValue(`${statusString}`);
+					storageLocationValueDisplay.innerHTML = FixValue(`${storageLocationString}`);
 
 					// Populates Batch Data
-					dateTimeBatchValueDisplay.innerHTML = `${dateTimeBatchString}`;
-					employeeBatchValueDisplay.innerHTML = `${employeeBatchString}`;
-					batchBatchValueDisplay.innerHTML = `${batchBatchString}`;
-					transactionIdBatchValueDisplay.innerHTML = `${transactionIdBatchString}`;
-					timestampBatchValueDisplay.innerHTML = `${timestampBatchString}`;
-					jarIdBatchValueDisplay.innerHTML = `${jarIDBatchBatchString}`;
-					statusBatchValueDisplay.innerHTML = `${statusBatchString}`;
-					storageLocationBatchValueDisplay.innerHTML = `${storageLocationBatchString}`;
+					dateTimeBatchValueDisplay.innerHTML = FixValue(`${dateTimeBatchString}`);
+					employeeBatchValueDisplay.innerHTML = FixValue(`${employeeBatchString}`);
+					batchBatchValueDisplay.innerHTML = FixValue(`${batchBatchString}`);
+					transactionIdBatchValueDisplay.innerHTML = FixValue(`${transactionIdBatchString}`);
+					timestampBatchValueDisplay.innerHTML = FixValue(`${timestampBatchString}`);
+					tempBatchValueDisplay.innerHTML = FixValue(`${tempBatchString}`);
+					// jarIdBatchValueDisplay.innerHTML = FixValue(`${jarIDBatchBatchString}`);
+					// statusBatchValueDisplay.innerHTML = FixValue(`${statusBatchString}`);
+					// storageLocationBatchValueDisplay.innerHTML = FixValue(`${storageLocationBatchString}`);
 					
+// FOR THE BATCH DATA there are three kinds of data. Need to wrap some in try catches to check for what type of data, and then only display that data.
+// THIS MEAN THAT EVEYRTHING MUST BE BUILT DOWN HERE IN ORDER> YOU CAN"T HAVE ANYTHING PRE BUILT ABOVE> ALSO MAKING IT ALL BUILT DOWN HERE SHOULD ACTUALLY RESULT IN CLEANER CODE
+
 					// Populates Jar Data
-					dateTimeJarValueDisplay.innerHTML = `${dateTimeJarString}`;
-					employeeJarValueDisplay.innerHTML = `${employeeJarString}`;
-					jarJarValueDisplay.innerHTML = `${jarJarString}`;
-					transactionIdJarValueDisplay.innerHTML = `${transactionIdJarString}`;
-					timestampJarValueDisplay.innerHTML = `${timestampJarString}`;
-					statusJarValueDisplay.innerHTML = `${statusJarString}`;
+					dateTimeJarValueDisplay.innerHTML = FixValue(`${dateTimeJarString}`);
+					employeeJarValueDisplay.innerHTML = FixValue(`${employeeJarString}`);
+					jarJarValueDisplay.innerHTML = FixValue(`${jarJarString}`);
+					transactionIdJarValueDisplay.innerHTML = FixValue(`${transactionIdJarString}`);
+					timestampJarValueDisplay.innerHTML = FixValue(`${timestampJarString}`);
+					statusJarValueDisplay.innerHTML = FixValue(`${statusJarString}`);
 
 					})
 
