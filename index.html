@@ -1,9 +1,7 @@
-<!---AS.03--->
-
+<!---AS1.0--->
 <!DOCTYPE html>
 <html>
 	<head>
-
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -11,11 +9,10 @@
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		
 		<title>Land Grant Goods Honey Jar Access</title>
-
 	</head>
 	
 	<body>
-		<!--- Nav bar additional handles the padding around the nav bar --->
+<!--- Nav bar additional handles the padding around the nav bar --->
 		<div class="parallax-window nav-bar-additional" data-parallax="scroll" data-image-src="images/greenhousesDark.jpg">
 
 				<nav class="navbar navbar-dark navbar-expand-lg navbar-transparent">
@@ -30,41 +27,44 @@
   					</button>
 
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-					<div class="navbar-nav">
-						<!--- This  handles the links on the nav bar --->
-					  <a class="nav-item nav-link active outlined-text" href="index.html">Home<span class="sr-only">(current)</span></a>
-					  <a class="nav-item nav-link active outlined-text" href="blockchain101.html">Blockchain 101</a>
-					  <a class="nav-item nav-link active outlined-text" href="http://localhost:4200/" target="_blank">Launch Web App</a>
-						<div id="header_button"><button onclick="location.href='https://www.landgrantgoods.com/'" type="button" class="btn btn-light">Store</button></div>
-						<!--- Need a transparent white icon: <a href="#"><img class="icon-format" src="images/mail_icon.png"></a> --->
-					    
-					    <a href="https://twitter.com/landgrantgoods" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format"  src="images/twitter_icon_resize.png"></a>
-					    <a href="https://www.instagram.com/landgrantgoods/" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format" src="images/ig_logo.png"></a>
-					    <a href="https://www.facebook.com/landgrantgoods/" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format" src="images/facebook_logo.png"></a>
+						<div class="navbar-nav">
+							<!--- This  handles the links on the nav bar --->
+						  <a class="nav-item nav-link active outlined-text" href="index.html">Home<span class="sr-only">(current)</span></a>
+						  <a class="nav-item nav-link active outlined-text" href="blockchain101.html">Blockchain 101</a>
+						  <a class="nav-item nav-link active outlined-text" href="http://localhost:4200/" target="_blank">Launch Web App</a>
+							<div id="header_button"><button onclick="location.href='https://www.landgrantgoods.com/'" type="button" class="btn btn-light">Store</button></div>
+							<!--- Need a transparent white icon: <a href="#"><img class="icon-format" src="images/mail_icon.png"></a> --->
+						    
+						    <a href="https://twitter.com/landgrantgoods" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format"  src="images/twitter_icon_resize.png"></a>
+						    <a href="https://www.instagram.com/landgrantgoods/" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format" src="images/ig_logo.png"></a>
+						    <a href="https://www.facebook.com/landgrantgoods/" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format" src="images/facebook_logo.png"></a>
 
-					</div>
-			<!--- This  div is for <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">, and the div above is for the div above that --->
+						</div>
 					</div>
 				</nav>
+<!-- End of NavBar, ends with above nav -->
 
+<!-- Text over Parallax Image -->
 			<div class="container-fluid">
 				<div class="row justify-content-center" style="padding-top: 3.5rem;">
 					<div class="col-lg-5 col-md-3"> </div>
 					<div class="col-lg-2 col-md-6 white-font outlined-text" style="text-align: center"><h1 class="parallax-title">HONEY</h1></div>
 					<div class="col-lg-5 col-md-3"> </div>
 				</div>
-			</div>
-		<!--- End of first parallax --->	
+			</div>	
 		</div>
+<!--- End of first parallax, ends in above div --->
 
+<!-- Text Below Parallax Image, has some text and the QR scanner -->
 		<div class="container-fluid white-background">
 			<div class="row justify-content-center" style="padding-top: 3rem; padding-bottom: 3rem;">
 				<div class="col-md-3 col-lg-3 "> </div>
+
 				<div class="col-lg-6 black-font" style="text-align: center;">
 					<p>The "Bailey Bee Team" was first created in 2014 as a way to introduce bees to the same living space as undergraduate students. Fast forward to the present and the same colonies, along with a few more at the Student Organic Farm are producing honey that is being sold under the Land Grant Goods name.</p>
 					<p class="bold">Enter your honey's unique identifying number below!</p>
 					
-					<!--- QR input field and element --->
+<!--- QR input field and element --->
 					<input type="text" class="qrcode-text" id="qrcode" placeholder="Enter Jar ID or Scan a QR Code!"
 					><label class="qrcode-text-btn">
 						<!--- This is the QR loading to open the camera then process the QR image (input then 'onchange'). In the JS code, there is also the additon of success and error handling, and prompting them with a message when the click the qr code to scan('onclick')--->
@@ -76,16 +76,20 @@
 						    onchange="openQRCamera(this);"
 						    tabindex=-1>
 					</label>
-
+<!-- Load button for QR -->
 					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="OnLoadButtonClick()">
 						Load
 					</button>
 				</div>
+
 				<div class="col-lg-3 col-md-3"> </div>
 			</div>
 
+<!-- This is the table for displaying data on Load -->
 		<div class="row" id="reloadOnFetch">
-			<div class="col-lg-2 col-xl-2"></div>
+
+			<div class="col-lg-2 col-xl-2"></div> <!-- This seperates the table from the left side of the page on some devices -->
+
 			<div class="col-md-12 col-lg-8 col-xl-8" style="padding-bottom: 1rem;">
 				<!-- JarID Data Table Collapse handler, MAYBE MAKE IT A MODAL-->
 				<div class="collapse" id="collapseExample">
@@ -93,7 +97,7 @@
 				  	<!-- JarID Data Table-->
 				    	<div class="table-responsive">
 							<table class="table table-bordered" id="dataTable">
-								<!--Main-->
+<!-- Main Data for Jar, not Transactions -->
 								<thead class="thead-light">
 								<tr>
 									<th scope="col">Type</th>
@@ -115,95 +119,38 @@
 									<td id="storageLocationId"></td>
 								</tr>
 
-								<!--Batch-->
+<!--Batch Data-->				<!--Batch Data-->
 								<thead class="thead-light">
-								<tr>
-									<th class="justify-content-center" colspan="2" scope="col">Batch Transactions</th>
-								</tr>
+									<tr>
+										<th class="justify-content-center" colspan="2" scope="col">Batch Transactions</th>
+									</tr>
 								</thead>
+								<tbody id=batchBody>
+									<!-- Data From Jar related JSON goes here -->
+								<tbody>
 
-								<tr>
-									<th scope="row">Date</th>
-									<td id="dateTimeBatchId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Employee</th>
-									<td id="employeeBatchId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Batch</th>
-									<td id="batchBatchId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Transaction ID</th>
-									<td id="transactionIdBatchId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Timestamp</th>
-									<td id="timestampBatchId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Temperature (Celsius)</th>
-									<td id="tempBatchId"></td>
-								</tr>
-	<!-- 						<tr>
-									<th scope="row">Jar ID</th>
-									<td id="jarIdBatchId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Status</th>
-									<td id="statusBatchId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Storage Location</th>
-									<td id="storageLocationBatchId"></td>
-								</tr> -->
-
-								<!--Jar-->
+<!--Jar Data-->					<!-- Jar Data-->
 								<thead class="thead-light">
-								<tr>
-									<th class="justify-content-center" colspan="2" scope="col">Jar Transactions</th>
-								</tr>
+									<tr>
+										<th class="justify-content-center" colspan="2" scope="col">Jar Transactions</th>
+									</tr>
 								</thead>
-
-								<tr>
-									<th scope="row">Date</th>
-									<td id="dateTimeJarId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Employee</th>
-									<td id="employeeJarId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Jar</th>
-									<td id="jarNumberJarId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Transaction ID</th>
-									<td id="transactionIdJarId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Timestamp</th>
-									<td id="timestampJarId"></td>
-								</tr>
-								<tr>
-									<th scope="row">Status</th>
-									<td id="statusJarId"></td>
-								</tr>
+								<tbody>
+									<!-- Data From Jar related JSON goes here.-->
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
-
 			</div>
-			<div class="col-lg-2 col-xl-2"></div>
+
+			<div class="col-lg-2 col-xl-2"></div> <!-- This seperates the table from the Right side of the page on some devices -->
 		</div>
 	</div>
 
-	<!-- Footer -->
+
+<!-- Footer -->
 	<footer class="page-footer custom-footer font-small blue pt-4">
-	    
 	    <!-- Footer Links -->
 	    <div class="container-fluid text-center text-md-left" style="padding-bottom:0;">	      
 	      <!-- Grid row -->
@@ -219,17 +166,17 @@
 	      <!-- Grid row -->
 	    </div>
 	    <!-- Footer Links -->
-
 	    <!-- Copyright -->
 	    <div class="footer-copyright text-center py-3 white-font" style="">©2019 Copyright:
 	      <a href="https://www.landgrantgoods.com/"> Land Grant Goods </a>
 	    </div>
 	    <!-- Copyright -->
-
 	</footer>
-	 <!-- Footer -->
+<!-- End of Footer -->
 
-	 <!-- parralax -->
+
+<!-- This is the beginning of Javascript and JS links-->
+	<!-- parralax -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/parallax.js"></script>
 
@@ -238,6 +185,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	
+<!-- Beggining of script code and specific assets-->
 	<!--- QR Code scanner using modified zxing scripts for QR processing. MUST TRANSFORM TO LOCAL, EMAIL ANGELO SAVICH IF NOT MADE LOCAL BY BEGINNING OF OCTOBER 2019 OR SITE FUNCTIONALITY won't be quite right.--->
 	<script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
 	<!--- Script for QR Code --->
@@ -255,7 +203,6 @@
 		    };
 		    qrcode.decode(reader.result);
 		  };
-
 		  //var qrResult = qrcode.decode(reader.result);
 		  reader.readAsDataURL(node.files[0]);
 		}
@@ -263,150 +210,203 @@
 		function showQRIntro() {
 		  return confirm("Use your camera to take a picture of a QR code.");
 		}
-
 		function qrCodeTojQuery(){
 			var qrCodeData = document.getElementById('qrcode').value;
 		}
 	</script>
 
-	<!-- Script for populating customer product data -->
+
+
+<!-- Script for populating customer product data -->
 	<script>
-			// These have the main variable values assigned to them. The JarIdId has Id twice to show its an html element id. Etc, applies to the rest
-			const jarIdValueDisplay = document.getElementById('jarIdId');
-			//const packagerValueDisplay = document.getElementById('packagerId');
-			const statusValueDisplay = document.getElementById('statusId');
-			const storageLocationValueDisplay = document.getElementById('storageLocationId');
-			const transactionsValueDisplay = document.getElementById('transactionsId');
+// --- <Script for populating customer product data> ---
+// <Init - Global Variables>
+		// This is a key value dictionary. First, it controls what data can be added to the table in AddKeyToTable(). Second, it takes the dictionary key of everything in the JSON file and uses it as a key here. The values for the key are strings containing how you want the dictionary key formatted for the consumer when displaying that keys value in the JSON.
+		var valueLabelingDictionary = {
+			"dateTime" : "Date and Time",
+			"employee" : "Employee",
+			"batch" : "Batch Number",
+			"transactionId" : "Transaction ID",
+			"timestamp" : "Timestamp",
+			"status" : "Status",
+			"jarId" : "Jar ID",
+			"storageLocation" : "Storage Location",
+			"centigrade" : "Temperature (Celsius)"
+		};	
 
-			//These have the batch var values assigned to them
-			const dateTimeBatchValueDisplay = document.getElementById('dateTimeBatchId');
-			const employeeBatchValueDisplay = document.getElementById('employeeBatchId');
-			const batchBatchValueDisplay = document.getElementById('batchBatchId');
-			const transactionIdBatchValueDisplay = document.getElementById('transactionIdBatchId');
-			const timestampBatchValueDisplay = document.getElementById('timestampBatchId');
-			const tempBatchValueDisplay = document.getElementById('tempBatchId');
-			// const jarIdBatchValueDisplay = document.getElementById('jarIdBatchId');
-			// const statusBatchValueDisplay = document.getElementById('statusBatchId');
-			// const storageLocationBatchValueDisplay = document.getElementById('storageLocationBatchId');
+		var rowIndexCounterQrCodeTable; // Establishes a global counter for rows on the QrCode Datatable on this page
 
-			//These have the jar batch var values assigned to them
-			const dateTimeJarValueDisplay = document.getElementById('dateTimeJarId');
-			const employeeJarValueDisplay = document.getElementById('employeeJarId');
-			const jarJarValueDisplay = document.getElementById('jarNumberJarId');
-			const transactionIdJarValueDisplay = document.getElementById('transactionIdJarId');
-			const timestampJarValueDisplay = document.getElementById('timestampJarId');
-			const statusJarValueDisplay = document.getElementById('statusJarId');
+		// // These have the main variable values assigned to them, and are hardcoded in the html on this page.. Used for fillin in table data that is guranteed to be there. Used in JarIdFetcher(). The JarIdId has Id twice to show its an html element id. Etc, applies to the rest
+		// const jarIdValueDisplay = document.getElementById('jarIdId');
+		// const statusValueDisplay = document.getElementById('statusId');
+		// const storageLocationValueDisplay = document.getElementById('storageLocationId');
+		// const transactionsValueDisplay = document.getElementById('transactionsId');
 
-			//  returns none for empty info instead of a blank space or empty list
-			function FixValue(object) {
-				for (var value in object){
-					if (object.hasOwnProperty(value)){
-						return object;
-					}
+		// <TestingStuff>
+			var testingDict = {
+				"$class": "org.sbs.supplychain.honeyJar",
+				"jarId": "string",
+				"status": "READY_FOR_PACKAGING",
+				"storageLocation": "string",
+				"batchTransactions": [{
+					"$class": "org.sbs.supplychain.updateBatchStatus",
+					"dateTime": "5234rf24vr",
+					"employee": "resource:org.sbs.supplychain.Employee#23rwefd",
+					"batch": "resource:org.sbs.supplychain.honeyBatch#yoyoyo",
+					"transactionId": "47e58f57009afd6779d8bf2a573fa8351543281c2f5b246693be0eebf3c7fabe",
+					"timestamp": "2019-06-11T22:53:11.290Z",
+					"status": "STORAGE"
+					},
+					{
+					 "$class": "org.sbs.supplychain.pourJar",
+					 "dateTime": "5u89hu980o",
+					 "employee": "resource:org.sbs.supplychain.Employee#23rwefd",
+					 "batch": "resource:org.sbs.supplychain.honeyBatch#yoyoyo",
+					 "transactionId": "705647ee14a521389e60361c1d06fac264b03f283b443db933262a1f2a148283",
+					 "timestamp": "2019-06-11T22:53:29.183Z",
+					 "jarId": "XTYHCljAlLKrB5PA",
+					 "status": "READY_FOR_PACKAGING",
+					 "storageLocation": "4t323frewd"
+					},
+					{
+					 "$class": "org.sbs.supplychain.TemperatureReading",
+					 "dateTime": "4532145",
+					 "employee": "resource:org.sbs.supplychain.Employee#t5234e2",
+					 "batch": "resource:org.sbs.supplychain.honeyBatch#yoyoyo",
+					 "transactionId": "9ea2a763d6b78c174d9c8312b496172a82903c19e38af12c9589209f4e6631ab",
+					 "timestamp": "2019-06-11T22:52:57.109Z",
+					 "centigrade": 43
+					}],
+				"jarTransactions": [
+					// Need some test transaction
+				]
+				};
+				   // </TestingStuff>
+// </Init>
+
+
+// <Functions related to populating data>
+		//* returns none for empty info instead of a blank space or empty list
+		function FixValue(object) {
+			for (var value in object){
+				if (object.hasOwnProperty(value)){
+					return object;
 				}
-				return "None"
 			}
+			return "None"
+		}
+		
+		// This pulls data from all the javascript mumboJumbo
+		function PullDataAfterHash(string){
+			return string.split('#').pop() // breaks on #, and returns the string after it in the og string
+		}
 
-			function PullDataAfterHash(string){
-				return string.split('#').pop()
+		function AddKeyToTable(key, value){
+			// alert(rowIndexCounterQrCodeTable);
+			// <Init>
+			var tableBody = document.getElementById("batchBody"); // adds to the <tbody> with id="batchBody"
+			// </Init>
+
+			// <Determining and adding Transaction Headers, Labels, and Data>
+			//* Handles making a new transaction header for each new set
+			if (key == "int"){
+				rowIndexCounterQrCodeTable += 1; // Adds everytime before row is added (insertRow)
+				var row = tableBody.insertRow(rowIndexCounterQrCodeTable) // adds a row where it needs to in the table body
+			 	var cell1 = row.insertCell(0); // Adds one cell to row
+			 	cell1.colSpan=2; // Sets row width to two columns
+			 	cell1.innerHTML = 'Transaction' + value; // Adds Transaction + transactionNumber (var value) to Cell
 			}
-
-			 // This assigns the URL to get the files depending on the id.
-			function JarIdFetcher(){
-
-			
-			qrCodeData = document.getElementById('qrcode').value;  //pulls JarId from field
-			const dataTableToPopulate = document.getElementById('dataTable'); // This specifies where added results will go.
-			if (qrCodeData){var URL = 'http://localhost:3000/api/honeyJar/'+qrCodeData;}
-			else{var URL = null;}
-			//var url = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar/'+qrCodeData;
-			
-			// starts processing the id
-				fetch(URL)
-				.then((resp) => resp.json())
-				.then(function(data) {
-					let consumerData = data; // Pulls first dictionary from list, so uses top result.
+			//* Handles data within the transaction and adds below the above mentioned corresponding transaction header
+			else{
+				// If data is not specified to be displayed in the ValueLabelingDict, it won't be included in the table.
+				if !(key in valueLabelingDictionary){return;} // Stops running and moves to next value in Batch dictionary if the key is class
+				rowIndexCounterQrCodeTable += 1; // Adds everytime before row is added (insertRow)
+			 	var row = tableBody.insertRow(rowIndexCounterQrCodeTable) // adds a row where it needs to in the table body
+			 	var cell1 = row.insertCell(0); // left cell
+			 	var cell2 = row.insertCell(1); // right cell
+			 	cell1.innerHTML = valueLabelingDictionary[key]; // Adds label
+			 	cell2.innerHTML = value; // Adds data
+		 	}
+		 	// </Determining and adding Transaction Headers, Labels, and Data>
+		}
+// </Functions related to populating data>
+				function Testing(data){
+					// <Init - and Labeling Data Types for Later Processing>
+					const dataTableToPopulate = document.getElementById('dataTable'); // This specifies where added results will go.
+					let consumerData = data; // Actualy just grabs data currentlys :Pulls first dictionary from list, so uses top result if for some reason there are multiple.
+					let batchList = data.batchTransactions;// Sets the var batchDict = to data.batchTransaction for this scope
+					let jarList = data.jarTransactions;
+					// </Init>
 
 					// Pulls all data from server for variables 
 					var jarIdString = consumerData.jarId;
-					//var packagerString = consumerData.packager;
 					var statusString = consumerData.status;
 					var storageLocationString = consumerData.storageLocation;
-
-					// Pulls Batch Data from server. Goes through each set of data
-					for (const batchDict of consumerData.batchTransactions) {
-						var dateTimeBatchString = batchDict.dateTime;
-						var employeeBatchString = PullDataAfterHash(batchDict.employee);  //pull out val from after hash
-						var batchBatchString = PullDataAfterHash(batchDict.batch); //pull out vall from after hash
-						var transactionIdBatchString = batchDict.transactionID;
-						var timestampBatchString = batchDict.timestamp;
-						var tempBatchString = batchDict.centigrade;
-						// var jarIDBatchBatchString = batchDict.jarID;
-						// var statusBatchString = batchDict.status;
-						// var storageLocationBatchString = batchDict.storageLocation;
-						break
-					}
 					
+					// --<Batch Data Processing>--
+					// <Batch Data Init>
+					var batchTransactionCounter = 0; // Set to zero so first one is 1 (see later)
+					rowIndexCounterQrCodeTable = -1; // Keeps track of which row its on for adding to <tbody>. Runs inside AddKeyToTable. Resets on Load Button Click.
+					// </Batch Data Init
+					// <Adding Batch Data to Table>
+					// Pulls Batch Data from server. Goes through each set of data
+					batchList.map(function(batchDict){
+						//* Counts transactions and makes a new header two column row for each one
+						batchTransactionCounter += 1; // Keeps track for labeling which transaction (keep reading into AddKeyToTable())
+						AddKeyToTable("int", batchTransactionCounter); // Runs to make a new header with "Transaction". RowIndexCounter starts at 0
 
+						//* Goes through each key value pair for each transaction in the batchDict
+						for (const [key, value] of Object.entries(batchDict)){					
+							rowIndexCounter = AddKeyToTable(key, value);	// Runs to label and add data to table
+						}
+						
+					})
+					// </ Adding Batch Data To Table>
+					// --<Batch Data Processing>--
+					
 					// Pulls Jar Data from server, goes through  each set
-					for (const jarDict of consumerData.jarTransactions) {
+					jarList.map(function(jarDict){
 						var dateTimeJarString = jarDict.dateTime;
 						var employeeJarString = PullDataAfterHash(jarDict.employee); //pull out name from after hash
 						var jarJarString = PullDataAfterHash(jarDict.jar); //pull out val from after hash
 						var transactionIdJarString = jarDict.transaction;
 						var timestampJarString  = jarDict.timestamp;
 						var statusJarString  = jarDict.status;
-						break
-					}
-
-// So in the two bubbles above have it first add a thead element for transaction i, i being a variable number. Then have it add the table row and tds by appending them to the big table above.
-
-					// Populates with Main data
-					jarIdValueDisplay.innerHTML = FixValue(`${jarIdString}`);
-					//packagerValueDisplay.innerHTML = FixValue(`${packagerString}`);
-					statusValueDisplay.innerHTML = FixValue(`${statusString}`);
-					storageLocationValueDisplay.innerHTML = FixValue(`${storageLocationString}`);
-
-					// Populates Batch Data
-					dateTimeBatchValueDisplay.innerHTML = FixValue(`${dateTimeBatchString}`);
-					employeeBatchValueDisplay.innerHTML = FixValue(`${employeeBatchString}`);
-					batchBatchValueDisplay.innerHTML = FixValue(`${batchBatchString}`);
-					transactionIdBatchValueDisplay.innerHTML = FixValue(`${transactionIdBatchString}`);
-					timestampBatchValueDisplay.innerHTML = FixValue(`${timestampBatchString}`);
-					tempBatchValueDisplay.innerHTML = FixValue(`${tempBatchString}`);
-					// jarIdBatchValueDisplay.innerHTML = FixValue(`${jarIDBatchBatchString}`);
-					// statusBatchValueDisplay.innerHTML = FixValue(`${statusBatchString}`);
-					// storageLocationBatchValueDisplay.innerHTML = FixValue(`${storageLocationBatchString}`);
-					
-// FOR THE BATCH DATA there are three kinds of data. Need to wrap some in try catches to check for what type of data, and then only display that data.
-// THIS MEAN THAT EVEYRTHING MUST BE BUILT DOWN HERE IN ORDER> YOU CAN"T HAVE ANYTHING PRE BUILT ABOVE> ALSO MAKING IT ALL BUILT DOWN HERE SHOULD ACTUALLY RESULT IN CLEANER CODE
-
-					// Populates Jar Data
-					dateTimeJarValueDisplay.innerHTML = FixValue(`${dateTimeJarString}`);
-					employeeJarValueDisplay.innerHTML = FixValue(`${employeeJarString}`);
-					jarJarValueDisplay.innerHTML = FixValue(`${jarJarString}`);
-					transactionIdJarValueDisplay.innerHTML = FixValue(`${transactionIdJarString}`);
-					timestampJarValueDisplay.innerHTML = FixValue(`${timestampJarString}`);
-					statusJarValueDisplay.innerHTML = FixValue(`${statusJarString}`);
-
 					})
-
-					// This is required to reload and populate the element
-				.catch(function(error) {
-			    console.log(error)
-				})}
-			</script>
-		<script>
-				function OnLoadButtonClick(){
-					JarIdFetcher();
 				}
+// <JarIDFetcher - Handles data population from QR code>
+		function JarIdFetcher(URL){
+			
+			// starts processing the id
+				// fetch(URL)
+				// .then((resp) => resp.json()) // Specifies json format
+				// .then
+				
+				// .catch(function(error) {
+			 //    	console.log(error)
+				// })}
+				Testing(testingDict);
+		}//)
 
-				//alert("This site is not fully developed. I will get it done once we have established backend formatting so I don't have to keep redoing the front end formatting.");
+// </JarIDFetcher>
+
+			function OnLoadButtonClick(){
+				// <Testing Stuff>
+				qrCodeData = "yo" // document.getElementById('qrcode').value;  //pulls JarId from field
+				// </Testing Stuff>		
+
+				// <Determine if QR Code is Entered>
+				//* This is for performance, so it only runs the JarIdFetcher Function if it has to, and it doesn't load anything right away which improves page load time.
+				if (qrCodeData){var URL = 'http://localhost:3000/api/honeyJar/'+ qrCodeData; JarIdFetcher(URL); } //
+				// </Determine if QR Code is Entered>
+
+				// Maybe add in so only opens table if there is an input
+			}
+// --- <Script for populating customer product data> ---
 		</script>
 
 	</body>
 </html>
-<!-- <h1 class="removefirstheaderspacing"></h1> -->
 
 
 
@@ -420,3 +420,5 @@
 	or is included through alternative means, such as additional text hidden with the .sr-only class.
 #5
 --> 
+
+<!-- AS -->
