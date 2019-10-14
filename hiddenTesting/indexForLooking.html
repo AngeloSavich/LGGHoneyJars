@@ -1,0 +1,476 @@
+<!---AS.03--->
+
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		
+		<title>Land Grant Goods Honey Jar Access</title>
+
+	</head>
+	
+	<body>
+		<!--- Nav bar additional handles the padding around the nav bar --->
+		<div class="parallax-window nav-bar-additional" data-parallax="scroll" data-image-src="images/greenhousesDark.jpg">
+
+				<nav class="navbar navbar-dark navbar-expand-lg navbar-transparent">
+				 	<a class="navbar-brand">
+				 		<!--- proper ratio for logo is 757 width 1005 height no unit. Nav bar logo --->
+				   		<img href="index.html" src="images/logo.png" class="lgg-logo">
+				 	</a>
+
+				 	<!--- This button appears when the page goes to mobile or mid-tablet sizes. Condenses navbar. --->
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    				<span class="navbar-toggler-icon"></span>
+  					</button>
+
+					<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<!--- This  handles the links on the nav bar --->
+					  <a class="nav-item nav-link active outlined-text" href="index.html">Home<span class="sr-only">(current)</span></a>
+					  <a class="nav-item nav-link active outlined-text" href="blockchain101.html">Blockchain 101</a>
+					  <a class="nav-item nav-link active outlined-text" href="http://localhost:4200/" target="_blank">Launch Web App</a>
+						<div id="header_button"><button onclick="location.href='https://www.landgrantgoods.com/'" type="button" class="btn btn-light">Store</button></div>
+						<!--- Need a transparent white icon: <a href="#"><img class="icon-format" src="images/mail_icon.png"></a> --->
+					    
+					    <a href="https://twitter.com/landgrantgoods" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format"  src="images/twitter_icon_resize.png"></a>
+					    <a href="https://www.instagram.com/landgrantgoods/" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format" src="images/ig_logo.png"></a>
+					    <a href="https://www.facebook.com/landgrantgoods/" class="d-none d-lg-block d-xl-none d-none d-xl-block"><img class="icon-format" src="images/facebook_logo.png"></a>
+
+					</div>
+			<!--- This  div is for <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">, and the div above is for the div above that --->
+					</div>
+				</nav>
+
+			<div class="container-fluid">
+				<div class="row justify-content-center" style="padding-top: 3.5rem;">
+					<div class="col-lg-5 col-md-3"> </div>
+					<div class="col-lg-2 col-md-6 white-font outlined-text" style="text-align: center"><h1 class="parallax-title">HONEY</h1></div>
+					<div class="col-lg-5 col-md-3"> </div>
+				</div>
+			</div>
+		<!--- End of first parallax --->	
+		</div>
+
+		<div class="container-fluid white-background">
+			<div class="row justify-content-center" style="padding-top: 3rem; padding-bottom: 3rem;">
+				<div class="col-md-3 col-lg-3 "> </div>
+				<div class="col-lg-6 black-font" style="text-align: center;">
+					<p>The "Bailey Bee Team" was first created in 2014 as a way to introduce bees to the same living space as undergraduate students. Fast forward to the present and the same colonies, along with a few more at the Student Organic Farm are producing honey that is being sold under the Land Grant Goods name.</p>
+					<p class="bold">Enter your honey's unique identifying number below!</p>
+					
+					<!--- QR input field and element --->
+					<input type="text" class="qrcode-text" id="qrcode" placeholder="Enter Jar ID or Scan a QR Code!"
+					><label class="qrcode-text-btn">
+						<!--- This is the QR loading to open the camera then process the QR image (input then 'onchange'). In the JS code, there is also the additon of success and error handling, and prompting them with a message when the click the qr code to scan('onclick')--->
+						<input
+							type=file
+						    accept="image/*"
+						    capture=environment
+						    onclick="return showQRIntro();"
+						    onchange="openQRCamera(this);"
+						    tabindex=-1>
+					</label>
+
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="OnLoadButtonClick()">
+						Load
+					</button>
+				</div>
+				<div class="col-lg-3 col-md-3"> </div>
+			</div>
+
+		<div class="row" id="reloadOnFetch">
+			<div class="col-lg-2 col-xl-2"></div>
+			<div class="col-md-12 col-lg-8 col-xl-8" style="padding-bottom: 1rem;">
+				<!-- JarID Data Table Collapse handler, MAYBE MAKE IT A MODAL-->
+				<div class="collapse" id="collapseExample">
+					<div class="card card-body">
+				  	<!-- JarID Data Table-->
+				    	<div class="table-responsive">
+							<table class="table table-bordered" id="dataTable">
+								<!--Main-->
+								<thead class="thead-light">
+									<tr>
+										<th scope="col">Type</th>
+										<th scope="col">Information</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<th scope="row">Jar ID:</th>
+										<td id="jarIdId"></td>
+									</tr>
+									<tr>
+										<th scope="row">Status:</th>
+										<td id="statusId"></td>
+									</tr>
+									<tr>
+										<th scope="row">Storage Location:</th>
+										<td id="storageLocationId"></td>
+									</tr>
+								</tbody>
+								
+								<!--Batch-->
+								<thead class="thead-light">
+									<tr>
+										<th class="justify-content-center" colspan="2" scope="col">Batch Transactions</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<th scope="row">Date</th>
+										<td id="dateTimeBatchId"></td>
+									</tr>
+									<tr>
+										<th scope="row">Employee</th>
+										<td id="employeeBatchId"></td>
+									</tr>
+									<tr>
+										<th scope="row">Batch</th>
+										<td id="batchBatchId"></td>
+									</tr>
+									<tr>
+										<th scope="row">Transaction ID</th>
+										<td id="transactionIdBatchId"></td>
+									</tr>
+									<tr>
+										<th scope="row">Timestamp</th>
+										<td id="timestampBatchId"></td>
+									</tr>
+									<tr>
+										<th scope="row">Temperature (Celsius)</th>
+										<td id="tempBatchId"></td>
+									</tr>
+								</tbody>
+	<!-- 						<tr>
+									<th scope="row">Jar ID</th>
+									<td id="jarIdBatchId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Status</th>
+									<td id="statusBatchId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Storage Location</th>
+									<td id="storageLocationBatchId"></td>
+								</tr> -->
+
+								<!--Jar-->
+								<thead class="thead-light">
+									<tr>
+										<th class="justify-content-center" colspan="2" scope="col">Jar Transactions</th>
+									</tr>
+								</thead>
+
+								<tbody>
+								<tr>
+									<th scope="row">Date</th>
+									<td id="dateTimeJarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Employee</th>
+									<td id="employeeJarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Jar</th>
+									<td id="jarNumberJarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Transaction ID</th>
+									<td id="transactionIdJarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Timestamp</th>
+									<td id="timestampJarId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Status</th>
+									<td id="statusJarId"></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-lg-2 col-xl-2"></div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="page-footer custom-footer font-small blue pt-4">
+	    
+	    <!-- Footer Links -->
+	    <div class="container-fluid text-center text-md-left" style="padding-bottom:0;">	      
+	      <!-- Grid row -->
+	      <div class="row justify-content-center" style="height: 10px;">	        
+	        <!-- Grid column -->
+	        <div>
+	          <!-- Content -->
+	          <a href="https://spartanblockchain.org" style="color: white"><h5><u>Powered By Spartan Blockchain</u></h5></a>
+	        </div>
+	        <!-- Grid column -->	        
+	        <hr class="clearfix w-100 d-md-none pb-3">
+	      </div>
+	      <!-- Grid row -->
+	    </div>
+	    <!-- Footer Links -->
+
+	    <!-- Copyright -->
+	    <div class="footer-copyright text-center py-3 white-font" style="">©2019 Copyright:
+	      <a href="https://www.landgrantgoods.com/"> Land Grant Goods </a>
+	    </div>
+	    <!-- Copyright -->
+
+	</footer>
+	 <!-- Footer -->
+
+	 <!-- parralax -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/parallax.js"></script>
+
+	<!-- bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	<!--- QR Code scanner using modified zxing scripts for QR processing. MUST TRANSFORM TO LOCAL, EMAIL ANGELO SAVICH IF NOT MADE LOCAL BY BEGINNING OF OCTOBER 2019 OR SITE FUNCTIONALITY won't be quite right.--->
+	<script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+	<!--- Script for QR Code --->
+	<script type="text/javascript">
+		function openQRCamera(node) {
+		  var reader = new FileReader();
+		  reader.onload = function() {
+		    node.value = "";
+		    qrcode.callback = function(res) {
+		      if(res instanceof Error) {
+		        alert("No QR code found. Please make sure the QR code is within the camera's frame and try again.");
+		      } else {
+		        node.parentNode.previousElementSibling.value = res;
+		      }
+		    };
+		    qrcode.decode(reader.result);
+		  };
+
+		  //var qrResult = qrcode.decode(reader.result);
+		  reader.readAsDataURL(node.files[0]);
+		}
+		// this tells the user what the purpose of the scanner is. It is used in the html above from the scanner input
+		function showQRIntro() {
+		  return confirm("Use your camera to take a picture of a QR code.");
+		}
+
+		function qrCodeTojQuery(){
+			var qrCodeData = document.getElementById('qrcode').value;
+		}
+	</script>
+
+	<!-- Script for populating customer product data -->
+	<script>
+			// These have the main variable values assigned to them. The JarIdId has Id twice to show its an html element id. Etc, applies to the rest
+			const jarIdValueDisplay = document.getElementById('jarIdId');
+			//const packagerValueDisplay = document.getElementById('packagerId');
+			const statusValueDisplay = document.getElementById('statusId');
+			const storageLocationValueDisplay = document.getElementById('storageLocationId');
+			const transactionsValueDisplay = document.getElementById('transactionsId');
+
+			//These have the batch var values assigned to them
+			const dateTimeBatchValueDisplay = document.getElementById('dateTimeBatchId');
+			const employeeBatchValueDisplay = document.getElementById('employeeBatchId');
+			const batchBatchValueDisplay = document.getElementById('batchBatchId');
+			const transactionIdBatchValueDisplay = document.getElementById('transactionIdBatchId');
+			const timestampBatchValueDisplay = document.getElementById('timestampBatchId');
+			const tempBatchValueDisplay = document.getElementById('tempBatchId');
+			// const jarIdBatchValueDisplay = document.getElementById('jarIdBatchId');
+			// const statusBatchValueDisplay = document.getElementById('statusBatchId');
+			// const storageLocationBatchValueDisplay = document.getElementById('storageLocationBatchId');
+
+			//These have the jar batch var values assigned to them
+			const dateTimeJarValueDisplay = document.getElementById('dateTimeJarId');
+			const employeeJarValueDisplay = document.getElementById('employeeJarId');
+			const jarJarValueDisplay = document.getElementById('jarNumberJarId');
+			const transactionIdJarValueDisplay = document.getElementById('transactionIdJarId');
+			const timestampJarValueDisplay = document.getElementById('timestampJarId');
+			const statusJarValueDisplay = document.getElementById('statusJarId');
+
+			//  returns none for empty info instead of a blank space or empty list
+			function FixValue(object) {
+				for (var value in object){
+					if (object.hasOwnProperty(value)){
+						return object;
+					}
+				}
+				return "None"
+			}
+
+			function PutWithin(parent, el) {
+    			return parent.appendChild(el); // Append the second parameter(element) to the first one
+ 			 }
+
+ 			 function CreateContainer(element) {
+    			return document.createElement(element); // Create the type of element you pass in the parameters
+  			}
+
+			function PullDataAfterHash(string){
+				return string.split('#').pop()
+			}
+
+			 // This assigns the URL to get the files depending on the id.
+			function JarIdFetcher(){
+
+			
+			qrCodeData = document.getElementById('qrcode').value;  //pulls JarId from field
+			const dataTableToPopulate = document.getElementById('dataTable'); // This specifies where added results will go.
+			if (qrCodeData){var URL = 'http://localhost:3000/api/honeyJar/'+ qrCodeData;}
+			else{var URL = null;}
+			//var url = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar/'+qrCodeData;
+			
+			// starts processing the id
+				fetch(URL)
+				.then((resp) => resp.json()) // Specifies json format
+				.then(function(data) {
+					let consumerData = data; // Pulls first dictionary from list, so uses top result if for some reason there are multiple.
+					let batchList = data.batchTransactions; // Sets the var batchDict = to data.batchTransaction for this scope
+					let jarList = data.jarTransactions;
+
+
+					// Pulls all data from server for variables 
+					var jarIdString = consumerData.jarId;
+					//var packagerString = consumerData.packager;
+					var statusString = consumerData.status;
+					var storageLocationString = consumerData.storageLocation;
+					
+
+					// Pulls Batch Data from server. Goes through each set of data
+					batchList.map(function(batchDict)){
+						// What this will do is go through the list of batch data, and for each on it will run a batch data function. That function will add every type of data in that dictionary within the list, and add a th with the proper title, then a td with the data. This will use try, excepts and will build the table. Between each and before the first itll add a thead with a tr and a Transaction Type (or maybe number?), which will go above the data.
+
+						// This is the first kind of data: Temp Reading
+
+						// These are all the common datatypes
+						var dateTimeBatchString = batchDict.dateTime;
+						var employeeBatchString = PullDataAfterHash(batchDict.employee);  //pull out val from after hash
+						var batchBatchString = PullDataAfterHash(batchDict.batch); //pull out vall from after hash
+						var transactionIdBatchString = batchDict.transactionID;
+						var timestampBatchString = batchDict.timestamp;
+
+
+						// This is common in the first two types
+						var statusBatchString = batchDict.status;
+						var storageLocationBatchString = batchDict.storageLocation;
+						// This is common in the second stype
+
+						// This is only in the temperature transaction
+						var tempBatchString = batchDict.centigrade;
+
+						break
+					}
+					
+
+					// Pulls Jar Data from server, goes through  each set
+					for (const jarDict of consumerData.jarTransactions) {
+
+						var dateTimeJarString = jarDict.dateTime;
+						var employeeJarString = PullDataAfterHash(jarDict.employee); //pull out name from after hash
+						var jarJarString = PullDataAfterHash(jarDict.jar); //pull out val from after hash
+						var transactionIdJarString = jarDict.transaction;
+						var timestampJarString  = jarDict.timestamp;
+						var statusJarString  = jarDict.status;
+						break
+					}
+
+// So in the two bubbles above have it first add a thead element for transaction i, i being a variable number. Then have it add the table row and tds by appending them to the big table above.
+
+					// Populates Page with Main data
+					jarIdValueDisplay.innerHTML = FixValue(`${jarIdString}`);
+					//packagerValueDisplay.innerHTML = FixValue(`${packagerString}`);
+					statusValueDisplay.innerHTML = FixValue(`${statusString}`);
+					storageLocationValueDisplay.innerHTML = FixValue(`${storageLocationString}`);
+
+					// Populates Batch Data
+					dateTimeBatchValueDisplay.innerHTML = FixValue(`${dateTimeBatchString}`);
+					employeeBatchValueDisplay.innerHTML = FixValue(`${employeeBatchString}`);
+					batchBatchValueDisplay.innerHTML = FixValue(`${batchBatchString}`);
+					transactionIdBatchValueDisplay.innerHTML = FixValue(`${transactionIdBatchString}`);
+					timestampBatchValueDisplay.innerHTML = FixValue(`${timestampBatchString}`);
+					tempBatchValueDisplay.innerHTML = FixValue(`${tempBatchString}`);
+					// jarIdBatchValueDisplay.innerHTML = FixValue(`${jarIDBatchBatchString}`);
+					// statusBatchValueDisplay.innerHTML = FixValue(`${statusBatchString}`);
+					// storageLocationBatchValueDisplay.innerHTML = FixValue(`${storageLocationBatchString}`);
+					
+// FOR THE BATCH DATA there are three kinds of data. Need to wrap some in try catches to check for what type of data, and then only display that data.
+// THIS MEAN THAT EVEYRTHING MUST BE BUILT DOWN HERE IN ORDER> YOU CAN"T HAVE ANYTHING PRE BUILT ABOVE> ALSO MAKING IT ALL BUILT DOWN HERE SHOULD ACTUALLY RESULT IN CLEANER CODE
+
+					// Populates Jar Data
+					dateTimeJarValueDisplay.innerHTML = FixValue(`${dateTimeJarString}`);
+					employeeJarValueDisplay.innerHTML = FixValue(`${employeeJarString}`);
+					jarJarValueDisplay.innerHTML = FixValue(`${jarJarString}`);
+					transactionIdJarValueDisplay.innerHTML = FixValue(`${transactionIdJarString}`);
+					timestampJarValueDisplay.innerHTML = FixValue(`${timestampJarString}`);
+					statusJarValueDisplay.innerHTML = FixValue(`${statusJarString}`);
+
+					})
+
+					// This is required to reload and populate the element
+				.catch(function(error) {
+			    console.log(error)
+				})}
+			</script>
+		<script>
+				function OnLoadButtonClick(){
+					JarIdFetcher();
+				}
+
+				//alert("This site is not fully developed. I will get it done once we have established backend formatting so I don't have to keep redoing the front end formatting.");
+		</script>
+
+	</body>
+</html>
+<!-- <h1 class="removefirstheaderspacing"></h1> -->
+
+
+
+						<!-- // These are all the common datatypes
+							var dateTimeBatchString = batchDict.dateTime;
+							var employeeBatchString = PullDataAfterHash(batchDict.employee);  //pull out val from after hash
+							var batchBatchString = PullDataAfterHash(batchDict.batch); //pull out val from after hash
+							var transactionIdBatchString = batchDict.transactionID;
+							var timestampBatchString = batchDict.timestamp;
+
+
+							// This is common in the first two types (updateBatchStatus and pourJar)
+							var statusBatchString = batchDict.status;
+							
+							// This is common in the second type (pourJar)
+							var storageLocationBatchString = batchDict.storageLocation;
+
+							// This is only in the temperature transaction type
+							var tempBatchString = batchDict.centigrade;
+
+
+							// Jar dict
+													var dateTimeJarString = jarDict.dateTime;
+						var employeeJarString = PullDataAfterHash(jarDict.employee); //pull out name from after hash
+						var jarJarString = PullDataAfterHash(jarDict.jar); //pull out val from after hash
+						var transactionIdJarString = jarDict.transaction;
+						var timestampJarString  = jarDict.timestamp;
+						var statusJarString  = jarDict.status; -->
+
+<!--Public Notes
+#1: Put all scripts after loading page content so that page content loads  as quickly as possible.
+#2: Keep style on top so shows up styled, not ugly then becomes styled.
+#3: Function goes down because can have page load but not full function yet, feels faster.
+#4: Conveying meaning to assistive technologies; using color to add meaning only provides a visual indication,
+	which will not be conveyed to users of assistive technologies – such as screen readers.
+	Ensure that information denoted by the color is either obvious from the content itself (e.g. the visible text),
+	or is included through alternative means, such as additional text hidden with the .sr-only class.
+#5
+--> 
