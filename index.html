@@ -306,6 +306,7 @@
 			// <Init>
 			var tableBody = document.getElementById("batchBody"); // adds to the <tbody> with id="batchBody"
 			// </Init>
+
 			// <Determining and adding Transaction Headers, Labels, and Data>
 			//* Handles making a new transaction header for each new set
 			if (key == "int"){
@@ -328,7 +329,6 @@
 		 	}
 		 	// </Determining and adding Transaction Headers, Labels, and Data>
 		}
-
 // </Functions related to populating data>
 				function Testing(data){
 					// <Init - and Labeling Data Types for Later Processing>
@@ -356,43 +356,35 @@
 						AddKeyToTable("int", batchTransactionCounter); // Runs to make a new header with "Transaction". RowIndexCounter starts at 0
 
 						//* Goes through each key value pair for each transaction in the batchDict
-						for (const [key, value] of Object.entries(batchDict))
-						{					
+						for (const [key, value] of Object.entries(batchDict)){					
 							rowIndexCounter = AddKeyToTable(key, value);	// Runs to label and add data to table
 						}
 						
 					})
 					// </ Adding Batch Data To Table>
-					// --<Jar Data Processing>--
+					// --<Batch Data Processing>--
 					
 					// Pulls Jar Data from server, goes through  each set
-					jarList.map(function(jarDict)
-					{
-						//! Neither counter is reset
-						//* Counts transactions and makes a new header two column row for each one
-						batchTransactionCounter += 1; // Keeps track for labeling which transaction (keep reading into AddKeyToTable())
-						AddKeyToTable("int", batchTransactionCounter); // Runs to make a new header with "Transaction". RowIndexCounter starts at 0
-
-						//* Goes through each key value pair for each transaction in the batchDict
-						for (const [key, value] of Object.entries(jarDict))
-						{					
-							rowIndexCounter = AddKeyToTable(key, value);	// Runs to label and add data to table
-						}
+					jarList.map(function(jarDict){
+						var dateTimeJarString = jarDict.dateTime;
+						var employeeJarString = PullDataAfterHash(jarDict.employee); //pull out name from after hash
+						var jarJarString = PullDataAfterHash(jarDict.jar); //pull out val from after hash
+						var transactionIdJarString = jarDict.transaction;
+						var timestampJarString  = jarDict.timestamp;
+						var statusJarString  = jarDict.status;
 					})
 				}
 // <JarIDFetcher - Handles data population from QR code>
 		function JarIdFetcher(URL){
 			
-			// // starts processing the id
-			// 	fetch(URL)
-			// 	.then((resp) => resp.json()) // Specifies json format
-			// 	.then(function(data) {
-
-
-			// 	}
-			// 	.catch(function(error) {
-			//     	console.log(error)
-			// 	})
+			// starts processing the id
+				// fetch(URL)
+				// .then((resp) => resp.json()) // Specifies json format
+				// .then
+				
+				// .catch(function(error) {
+			 //    	console.log(error)
+				// })}
 				Testing(testingDict);
 		}//)
 
@@ -400,7 +392,7 @@
 
 			function OnLoadButtonClick(){
 				// <Testing Stuff>
-				qrCodeData = document.getElementById('qrcode').value;  //pulls JarId from field
+				qrCodeData = "yo" // document.getElementById('qrcode').value;  //pulls JarId from field
 				// </Testing Stuff>		
 
 				// <Determine if QR Code is Entered>
@@ -408,7 +400,7 @@
 				if (qrCodeData){var URL = 'http://localhost:3000/api/honeyJar/'+ qrCodeData; JarIdFetcher(URL); } //
 				// </Determine if QR Code is Entered>
 
-				// Maybe add in so only opens table if there is an input, or just displays one row with an error message, thats cleared if theres something entered.
+				// Maybe add in so only opens table if there is an input
 			}
 // --- <Script for populating customer product data> ---
 		</script>
