@@ -1,0 +1,72 @@
+.parallax-window {
+    min-height: 30rem;
+    background: rgba(0, 0, 0, 0); /* or use transparent */
+}
+
+.navbar-inner {
+    background: rgba(0, 0, 0, 0);
+}
+
+.nav-bar-additional{
+    padding-right: 5.5rem;
+    padding-left: 2.5rem;
+    padding-top: 1.5rem;
+}
+
+.icon-format{
+    height: 2rem;
+    width: 2rem;
+    background: rgba(0, 0, 0, 0);
+    margin-left: .7rem;
+    margin-right: .7rem;
+}
+
+
+
+/* nav bar formatting below */
+.lgg-logo{
+    width: 150px;
+    height: 200px;
+}
+
+.white-font{
+    color: white;
+}
+
+.black-font{
+    color: black;
+}
+
+.bold{
+    font-weight: bold
+}
+
+.vertical-align {
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 540px) {
+    .display-spacing {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .lgg-logo{
+        width: 75px;
+        height: 100px;
+    }
+
+}
+
+@media only screen and (max-width: 960px) {
+    .lgg-logo{
+        width: 75px;
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+
+}

@@ -1,0 +1,180 @@
+<Doctpye html>
+<html>
+	<head>
+		<title>Test page for Hyperledger Querying</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+
+	<body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- <script language="JavaScript" type="text/javascript">
+	var staticUrl = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar';
+	$.getJSON(staticUrl, function(data) {
+	console.log("This is an example of a static JSON file being served by a web server.")
+	console.log(data[0]);
+});
+</script> -->
+		<!-- <div id="displayed"> </div>
+		<script>
+			document.getElementById("displayed").innerHTML = responseHTML.innerHTML;
+		</script> -->
+	<div class="table-responsive col-4">
+		<table class="table table-bordered">
+			<thead class="thead-light">
+			<tr>
+				<th scope="col"></th>
+				<th scope="col">Information</th>
+			</tr>
+			</thead>
+
+			<tbody>
+			<tr>
+				<th scope="row">JarID:</th>
+				<td id="jarId"></td>
+			</tr>
+			<tr>
+				<th scope="row">Packager:</th>
+				<td id="packager"></td>
+			</tr>
+			<tr>
+				<th scope="row">Status:</th>
+				<td id="status"></td>
+			</tr>
+			<tr>
+				<th scope="row">Storage Location:</th>
+				<td id="storageLocation"></td>
+			</tr>
+			<tr>
+				<th scope="row">Transactions:</th>
+				<td id="transactions"></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+		 <!-- <h1>Honey Jar Data</h1>
+		 <div>
+		 	<ul style="list-style-type: none;">
+		 		<li>
+		 			<p>Jar Id:</p>
+		 			<p id="jarId"></p>
+		 		</li>
+		 		<li>
+		 			<p>Packager:</p>
+		 			<p id="packager"></p>
+		 		</li>
+		 		<li>
+		 			<p>Status:</p>
+		 			<p id="status"></p>
+		 		</li>
+		 		<li>
+		 			<p>Storage Location:</p>
+		 			<p id="storageLocation"></p>
+		 		</li>
+		 		<li>
+		 			<p>Transactions:</p>
+		 			<p id="transactions"></p>
+		 		</li>
+		 	</ul>
+		 </div> -->
+
+
+		<script>
+			// These have the variable values assigned to them
+			const jarIDValueDisplay = document.getElementById('jarId');
+			const packagerValueDisplay = document.getElementById('packager');
+			const statusValueDisplay = document.getElementById('status');
+			const storageLocationValueDisplay = document.getElementById('storageLocation');
+			const transactionsValueDisplay = document.getElementById('transactions');
+  			var url = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar'; // Get 10 random users
+			  
+			function fixValue(object) {
+			  	for (var value in object){
+			    	if (object.hasOwnProperty(value)){
+			    		return object;
+			    	}
+			    	}
+
+			    	return "None"
+			  }
+
+			fetch(url)
+			.then((resp) => resp.json())
+			.then(function(data) {
+				let consumerData = data[0]; // Pulls first dictionary from list, so uses top result.
+				// Pulls all data for variables to be displayed
+				var jarId = fixValue(consumerData.jarId);
+				var packager = fixValue(consumerData.packager);
+				var status = fixValue(consumerData.status);
+				var storageLocation = fixValue(consumerData.storageLocation);
+				var transactions = fixValue(consumerData.transactions);
+				//Undisplayed variables I think are better to display, but the communication has been poor so I don't know.
+				// var batch
+				// var timeStamp
+				// var sourcingLocation
+				// var dateTime = info.
+
+				// Populates with data
+				jarIDValueDisplay.innerHTML = `${jarId}`;
+				packagerValueDisplay.innerHTML = `${packager}`;
+				statusValueDisplay.innerHTML = `${status}`;
+				storageLocationValueDisplay.innerHTML = `${storageLocation}`;
+				transactionsValueDisplay.innerHTML = `${transactions}`;
+				})
+			.catch(
+				function(error) {
+			    console.log(error)
+			}); 
+		</script>
+		
+	<!-- <h1>Honey Jar Data</h1>
+		<ul id="batchData"></ul>
+
+		<script type="text/javascript">
+
+			// URL = http://localhost:3000/api/org.sbs.supplychain.honeyJar/${id}
+			  function createNode(element) {
+			    return document.createElement(element); // Create the type of element you pass in the parameters: Unnecessary
+			  }
+
+			  function append(parent, el) {
+			    return parent.appendChild(el); // Append the second parameter(element) to the first one
+			  }
+
+			const ul = document.getElementById('batchData');
+			var queryURL = 'http://localhost:3000/api/org.sbs.supplychain.honeyJar'
+
+			fetch(queryURL)
+			.then((resp) => resp.json()) //sets type/transforms to json
+			.then(function(data) {
+
+				// Function maps through id's
+				return data.map(function(info) {
+					let li = document.createElement('span'); // Makes a list with a span inside
+
+				var jarId = info.jarId;
+				var packager = info.packager;
+				var status = info.status;
+				var storageLocation = info.storageLocation;
+				var transactions = info.transactions;
+				// Adds the above. variables to the span below
+				span.innerHTML = `${jarId} ${packager} ${status} ${storageLocation} ${transactions}`;
+				append(ul, li);
+				})				
+				// var batch
+				// var timeStamp
+				// var sourcingLocation
+				// var dateTime = info.
+			})
+			.catch(function(error) {
+			    console.log(error)
+			});
+
+		</script> -->
+
+	</body>
+
+
+</html>

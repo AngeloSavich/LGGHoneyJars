@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
+
+<table class="table table-bordered" id="dataTable">
+								<!--Main-->
+								<thead class="thead-light">
+								<tr>
+									<th scope="col">Type</th>
+									<th scope="col">Information</th>
+								</tr>
+								</thead>
+
+								<tbody>
+								<tr>
+									<th scope="row">Jar ID:</th>
+									<td id="jarIdId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Status:</th>
+									<td id="statusId"></td>
+								</tr>
+								<tr>
+									<th scope="row">Storage Location:</th>
+									<td id="storageLocationId"></td>
+								</tr>
+
+<!--Batch Data-->				<!--Batch Data-->
+								<thead class="thead-light">
+									<tr>
+										<th class="justify-content-center" colspan="2" scope="col">Batch Transactions</th>
+									</tr>
+								</thead>
+								<tbody id=batchBody>
+									<!-- Data From Jar related JSON goes here -->
+								<tbody>
+
+<!--Jar Data-->					<!-- Jar Data-->
+								<thead class="thead-light">
+									<tr>
+										<th class="justify-content-center" colspan="2" scope="col">Jar Transactions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Data From Jar related JSON goes here.-->
+								</tbody>
+</table>
+<br>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  var table = document.getElementById("batchBody");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  cell1.innerHTML = "NEW CELL1";
+
+}
+</script>
+
+</body>
+</html>
