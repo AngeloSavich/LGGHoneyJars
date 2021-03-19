@@ -243,44 +243,44 @@
 		// const transactionsValueDisplay = document.getElementById('transactionsId');
 
 		// <TestingStuff>
-		var testingDict = {
-			"$class": "org.sbs.supplychain.honeyJar",
-			"jarId": "string",
-			"status": "READY_FOR_PACKAGING",
-			"storageLocation": "string",
-			"batchTransactions": [{
-				"$class": "org.sbs.supplychain.updateBatchStatus",
-				"dateTime": "5234rf24vr",
-				"employee": "resource:org.sbs.supplychain.Employee#23rwefd",
-				"batch": "resource:org.sbs.supplychain.honeyBatch#yoyoyo",
-				"transactionId": "47e58f57009afd6779d8bf2a573fa8351543281c2f5b246693be0eebf3c7fabe",
-				"timestamp": "2019-06-11T22:53:11.290Z",
-				"status": "STORAGE"
-				},
-				{
-				 "$class": "org.sbs.supplychain.pourJar",
-				 "dateTime": "5u89hu980o",
-				 "employee": "resource:org.sbs.supplychain.Employee#23rwefd",
-				 "batch": "resource:org.sbs.supplychain.honeyBatch#yoyoyo",
-				 "transactionId": "705647ee14a521389e60361c1d06fac264b03f283b443db933262a1f2a148283",
-				 "timestamp": "2019-06-11T22:53:29.183Z",
-				 "jarId": "XTYHCljAlLKrB5PA",
-				 "status": "READY_FOR_PACKAGING",
-				 "storageLocation": "4t323frewd"
-				},
-				{
-				 "$class": "org.sbs.supplychain.TemperatureReading",
-				 "dateTime": "4532145",
-				 "employee": "resource:org.sbs.supplychain.Employee#t5234e2",
-				 "batch": "resource:org.sbs.supplychain.honeyBatch#yoyoyo",
-				 "transactionId": "9ea2a763d6b78c174d9c8312b496172a82903c19e38af12c9589209f4e6631ab",
-				 "timestamp": "2019-06-11T22:52:57.109Z",
-				 "centigrade": 43
-				}],
-			"jarTransactions": [
-				// Need some test transaction
-			]
-		};
+			var testingDict = {
+				"$class": "org.sbs.supplychain.honeyJar",
+				"jarId": "string",
+				"status": "READY_FOR_PACKAGING",
+				"storageLocation": "string",
+				"batchTransactions": [{
+					"$class": "org.sbs.supplychain.updateBatchStatus",
+					"dateTime": "5234rf24vr",
+					"employee": "resource:org.sbs.supplychain.Employee#23rwefd",
+					"batch": "resource:org.sbs.supplychain.honeyBatch#yoyoyo",
+					"transactionId": "47e58f57009afd6779d8bf2a573fa8351543281c2f5b246693be0eebf3c7fabe",
+					"timestamp": "2019-06-11T22:53:11.290Z",
+					"status": "STORAGE"
+					},
+					{
+					 "$class": "org.sbs.supplychain.pourJar",
+					 "dateTime": "5u89hu980o",
+					 "employee": "resource:org.sbs.supplychain.Employee#23rwefd",
+					 "batch": "resource:org.sbs.supplychain.honeyBatch#yoyoyo",
+					 "transactionId": "705647ee14a521389e60361c1d06fac264b03f283b443db933262a1f2a148283",
+					 "timestamp": "2019-06-11T22:53:29.183Z",
+					 "jarId": "XTYHCljAlLKrB5PA",
+					 "status": "READY_FOR_PACKAGING",
+					 "storageLocation": "4t323frewd"
+					},
+					{
+					 "$class": "org.sbs.supplychain.TemperatureReading",
+					 "dateTime": "4532145",
+					 "employee": "resource:org.sbs.supplychain.Employee#t5234e2",
+					 "batch": "resource:org.sbs.supplychain.honeyBatch#yoyoyo",
+					 "transactionId": "9ea2a763d6b78c174d9c8312b496172a82903c19e38af12c9589209f4e6631ab",
+					 "timestamp": "2019-06-11T22:52:57.109Z",
+					 "centigrade": 43
+					}],
+				"jarTransactions": [
+					// Need some test transaction
+				]
+				};
 				   // </TestingStuff>
 // </Init>
 
@@ -318,7 +318,7 @@
 			//* Handles data within the transaction and adds below the above mentioned corresponding transaction header
 			else{
 				// If data is not specified to be displayed in the ValueLabelingDict, it won't be included in the table.
-				if (!(key in valueLabelingDictionary)){return;} // Stops running and moves to next value in Batch dictionary if the key is class
+				if !(key in valueLabelingDictionary){return;} // Stops running and moves to next value in Batch dictionary if the key is class
 				rowIndexCounterQrCodeTable += 1; // Adds everytime before row is added (insertRow)
 			 	var row = tableBody.insertRow(rowIndexCounterQrCodeTable) // adds a row where it needs to in the table body
 			 	var cell1 = row.insertCell(0); // left cell
@@ -330,56 +330,56 @@
 		}
 
 // </Functions related to populating data>
-		function Testing(data){
-			// <Init - and Labeling Data Types for Later Processing>
-			const dataTableToPopulate = document.getElementById('dataTable'); // This specifies where added results will go.
-			let consumerData = data; // Actualy just grabs data currentlys :Pulls first dictionary from list, so uses top result if for some reason there are multiple.
-			let batchList = data.batchTransactions;// Sets the var batchDict = to data.batchTransaction for this scope
-			let jarList = data.jarTransactions;
-			// </Init>
+				function Testing(data){
+					// <Init - and Labeling Data Types for Later Processing>
+					const dataTableToPopulate = document.getElementById('dataTable'); // This specifies where added results will go.
+					let consumerData = data; // Actualy just grabs data currentlys :Pulls first dictionary from list, so uses top result if for some reason there are multiple.
+					let batchList = data.batchTransactions;// Sets the var batchDict = to data.batchTransaction for this scope
+					let jarList = data.jarTransactions;
+					// </Init>
 
-			// Pulls all data from server for variables 
-			var jarIdString = consumerData.jarId;
-			var statusString = consumerData.status;
-			var storageLocationString = consumerData.storageLocation;
-			
-			// --<Batch Data Processing>--
-			// <Batch Data Init>
-			var batchTransactionCounter = 0; // Set to zero so first one is 1 (see later)
-			rowIndexCounterQrCodeTable = -1; // Keeps track of which row its on for adding to <tbody>. Runs inside AddKeyToTable. Resets on Load Button Click.
-			// </Batch Data Init
-			// <Adding Batch Data to Table>
-			// Pulls Batch Data from server. Goes through each set of data
-			batchList.map(function(batchDict){
-				//* Counts transactions and makes a new header two column row for each one
-				batchTransactionCounter += 1; // Keeps track for labeling which transaction (keep reading into AddKeyToTable())
-				AddKeyToTable("int", batchTransactionCounter); // Runs to make a new header with "Transaction". RowIndexCounter starts at 0
+					// Pulls all data from server for variables 
+					var jarIdString = consumerData.jarId;
+					var statusString = consumerData.status;
+					var storageLocationString = consumerData.storageLocation;
+					
+					// --<Batch Data Processing>--
+					// <Batch Data Init>
+					var batchTransactionCounter = 0; // Set to zero so first one is 1 (see later)
+					rowIndexCounterQrCodeTable = -1; // Keeps track of which row its on for adding to <tbody>. Runs inside AddKeyToTable. Resets on Load Button Click.
+					// </Batch Data Init
+					// <Adding Batch Data to Table>
+					// Pulls Batch Data from server. Goes through each set of data
+					batchList.map(function(batchDict){
+						//* Counts transactions and makes a new header two column row for each one
+						batchTransactionCounter += 1; // Keeps track for labeling which transaction (keep reading into AddKeyToTable())
+						AddKeyToTable("int", batchTransactionCounter); // Runs to make a new header with "Transaction". RowIndexCounter starts at 0
 
-				//* Goes through each key value pair for each transaction in the batchDict
-				for (const [key, value] of Object.entries(batchDict))
-				{					
-					rowIndexCounter = AddKeyToTable(key, value);	// Runs to label and add data to table
+						//* Goes through each key value pair for each transaction in the batchDict
+						for (const [key, value] of Object.entries(batchDict))
+						{					
+							rowIndexCounter = AddKeyToTable(key, value);	// Runs to label and add data to table
+						}
+						
+					})
+					// </ Adding Batch Data To Table>
+					// --<Jar Data Processing>--
+					
+					// Pulls Jar Data from server, goes through  each set
+					jarList.map(function(jarDict)
+					{
+						//! Neither counter is reset
+						//* Counts transactions and makes a new header two column row for each one
+						batchTransactionCounter += 1; // Keeps track for labeling which transaction (keep reading into AddKeyToTable())
+						AddKeyToTable("int", batchTransactionCounter); // Runs to make a new header with "Transaction". RowIndexCounter starts at 0
+
+						//* Goes through each key value pair for each transaction in the batchDict
+						for (const [key, value] of Object.entries(jarDict))
+						{					
+							rowIndexCounter = AddKeyToTable(key, value);	// Runs to label and add data to table
+						}
+					})
 				}
-				
-			})
-			// </ Adding Batch Data To Table>
-			// --<Jar Data Processing>--
-			
-			// Pulls Jar Data from server, goes through  each set
-			jarList.map(function(jarDict)
-			{
-				//! Neither counter is reset
-				//* Counts transactions and makes a new header two column row for each one
-				batchTransactionCounter += 1; // Keeps track for labeling which transaction (keep reading into AddKeyToTable())
-				AddKeyToTable("int", batchTransactionCounter); // Runs to make a new header with "Transaction". RowIndexCounter starts at 0
-
-				//* Goes through each key value pair for each transaction in the batchDict
-				for (const [key, value] of Object.entries(jarDict))
-				{					
-					rowIndexCounter = AddKeyToTable(key, value);	// Runs to label and add data to table
-				}
-			})
-		}
 // <JarIDFetcher - Handles data population from QR code>
 		function JarIdFetcher(URL){
 			
@@ -398,18 +398,18 @@
 
 // </JarIDFetcher>
 
-		function OnLoadButtonClick(){
-			// <Testing Stuff>
-			qrCodeData = document.getElementById('qrcode').value;  //pulls JarId from field
-			// </Testing Stuff>		
+			function OnLoadButtonClick(){
+				// <Testing Stuff>
+				qrCodeData = document.getElementById('qrcode').value;  //pulls JarId from field
+				// </Testing Stuff>		
 
-			// <Determine if QR Code is Entered>
-			//* This is for performance, so it only runs the JarIdFetcher Function if it has to, and it doesn't load anything right away which improves page load time.
-			if (qrCodeData){var URL = 'http://localhost:3000/api/honeyJar/'+ qrCodeData; JarIdFetcher(URL); } //
-			// </Determine if QR Code is Entered>
+				// <Determine if QR Code is Entered>
+				//* This is for performance, so it only runs the JarIdFetcher Function if it has to, and it doesn't load anything right away which improves page load time.
+				if (qrCodeData){var URL = 'http://localhost:3000/api/honeyJar/'+ qrCodeData; JarIdFetcher(URL); } //
+				// </Determine if QR Code is Entered>
 
-			// Maybe add in so only opens table if there is an input, or just displays one row with an error message, thats cleared if theres something entered.
-		}
+				// Maybe add in so only opens table if there is an input, or just displays one row with an error message, thats cleared if theres something entered.
+			}
 // --- <Script for populating customer product data> ---
 		</script>
 
@@ -419,8 +419,8 @@
 
 
 <!--Public Notes
-#1: Put all scripts after loading page content so that page content loads as quickly as possible.
-#2: Keep style on top so shows up styled, not just text then becomes styled.
+#1: Put all scripts after loading page content so that page content loads  as quickly as possible.
+#2: Keep style on top so shows up styled, not ugly then becomes styled.
 #3: Function goes down because can have page load but not full function yet, feels faster.
 #4: Conveying meaning to assistive technologies; using color to add meaning only provides a visual indication,
 	which will not be conveyed to users of assistive technologies – such as screen readers.
