@@ -420,7 +420,7 @@
 
 <!--Public Notes
 #1: Put all scripts after loading page content so that page content loads as quickly as possible.
-#2: Keep style on top so shows up styled, not just text then becomes styled.
+#2: Keep style on top so shows up styled, not just text then styled.
 #3: Function goes down because can have page load but not full function yet, feels faster.
 #4: Conveying meaning to assistive technologies; using color to add meaning only provides a visual indication,
 	which will not be conveyed to users of assistive technologies – such as screen readers.
